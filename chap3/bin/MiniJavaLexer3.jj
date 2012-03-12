@@ -1,0 +1,180 @@
+options {
+  JAVA_UNICODE_ESCAPE = true;
+}
+
+PARSER_BEGIN(MiniJavaParser)
+	public class MiniJavaParser {}
+/*
+public class MiniJavaParser {
+  public static void main(String args[]) throws ParseException {
+    MiniJavaLexer parser = new MiniJavaLexer(System.in);
+    parser.Goal();
+  }
+}
+*/
+PARSER_END(MiniJavaParser)
+
+/*START OF LEXER */
+
+SKIP : /* WHITE SPACE */
+{
+  " "
+| "\t"
+| "\n"
+| "\r"
+| "\f"
+}
+
+SPECIAL_TOKEN : /* COMMENTS */
+{
+  <SINGLE_LINE_COMMENT: "//" (~["\n","\r"])* ("\n"|"\r"|"\r\n")>
+| <FORMAL_COMMENT: "/**" (~["*"])* "*" ("*" | (~["*","/"] (~["*"])* "*"))* "/">
+| <MULTI_LINE_COMMENT: "/*" (~["*"])* "*" ("*" | (~["*","/"] (~["*"])* "*"))* "/">
+}
+
+TOKEN : 
+{
+  < LPAREN: "(" >
+| < RPAREN: ")" >
+| < LBRACKET: "[" >
+| < RBRACKET: "]" >
+| < LBRACE: "{" >
+| < RBRACE: "}" >
+| < SEMICOLON: ";" >
+| < COMMA: "," >
+| < DOT: "." >
+| < ASSIGN: "=" >
+| < LT: "<" >
+| < PLUS: "+" >
+| < MINUS: "-" >
+| < AND : "&&" >   
+| < NOT : "!" >   
+| < BOOLEAN: "boolean" >   
+| < CLASS: "class" >
+| < INTERFACE: "interface" >
+| < ELSE: "else" >
+| < EXTENDS: "extends" >
+| < FALSE: "false" >
+| < IF: "if" >
+| < WHILE: "while" >
+| < INTEGER: "int" >   
+| < LENGTH: "length" >
+| < MAIN: "main" >
+| < NEW: "new" >
+| < PUBLIC: "public" >
+| < RETURN: "return" >
+| < STAR : "*" >
+| < STATIC: "static" >
+| < STRING: "String" >
+| < THIS: "this" >
+| < TRUE: "true" >
+| < PRINT: "System.out.println" >
+| < VOID: "void" >         
+}
+
+TOKEN : /* LITERALS */
+{
+  < INTEGER_LITERAL: ( ["1"-"9"] (["0"-"9"])* | "0" ) >
+}
+
+TOKEN : /* IDENTIFIERS */
+{
+  < IDENTIFIER: <LETTER> (<LETTER>|<DIGIT>)* >
+|
+  < #LETTER: ["_","a"-"z","A"-"Z"] >
+|
+  < #DIGIT: ["0"-"9"] >
+}
+
+/*END OF LEXER*/
+/************************************
+ * The MiniJava Grammar Starts Here *
+ ************************************/
+ /*START OF PARSER*/
+ 
+ void Program() : {} { MainClass() ClassDeclList() }
+ 
+ void MainClass() : {} { <CLASS> Identifier() <LBRACE> 
+ 	<PUBLIC> <STATIC> <VOID> <MAIN> <LPAREN> <STRING> <LBRACKET> <RBRACKET> Identifier() <RPAREN> 
+                <LBRACE> Statement() <RBRACE> <RBRACE> }
+ 
+ void ClassDeclList() : {} { ( ClassDecl() )* }
+ void ClassDecl() : {} { LOOKAHEAD(3) ClassDeclSimple() | ClassDeclExtends() }
+ void ClassDeclSimple() : {} { <CLASS> Identifier() <LBRACE> [ VarDeclList() ] [ MethodDeclList() ] }
+ void ClassDeclExtends() : {} { <CLASS> Identifier() <EXTENDS> Identifier() <LBRACE> [ VarDeclList() ] [ MethodDeclList() ] }
+ 
+ void ExpList() : {} { Exp() ( Exp() )*}
+ void Exp() : {} { And() }
+ void And() : {} { LessThan() ( <AND> LessThan() )*  }
+ void LessThan() : {} { AdditiveExp() [ <LT> AdditiveExp() ] }
+ void AdditiveExp() : {} { Times() ( (<PLUS> | <MINUS>) Times() )* } 
+ void Times() : {} { PrefixExp() ( <STAR> PrefixExp() )* }
+ void PrefixExp() : {} { Not() | PostfixExp() }
+ void Not() : {} { ( <NOT> )+ PostfixExp() }
+ void PostfixExp() : {} { PrimaryExp() ( <LBRACKET> Exp() <RBRACKET> | LOOKAHEAD(2) <DOT> Identifier() <LPAREN> ExpList() <RPAREN> | <DOT> <LENGTH>  )* }
+ //void Call() : {} {}  
+ //void Minus() : {} { <MINUS> }
+ //void Plus() : {} { <PLUS> } 
+ /* Primary Expressions */
+ void PrimaryExp() : {} { IntegerLiteral() | True() | False() | IdentifierExp() | This() | LOOKAHEAD(2) NewArray() | NewObject() }
+ void IntegerLiteral() : {} { <INTEGER_LITERAL> } 
+ void True() : {} { <TRUE> }
+ void False() : {} { <FALSE> } 
+ void IdentifierExp() : {} { Identifier() } 
+ void This() : {} { <THIS> }
+ void NewArray() : {} { <NEW> <INTEGER> <LBRACKET> Exp() <RBRACKET>}
+ void NewObject() : {} { <NEW> Identifier() <LPAREN> <RPAREN>}
+ 
+ //void ArrayLength() : {} {}
+ //void ArrayLookup() : {} {}
+  
+ void Formal() : {} { Type() Identifier() }
+ void FormalList() : {} { Formal() ( <COMMA> Formal() )* }
+   
+ void MethodDecl() : {} { <PUBLIC> Type() Identifier() <LPAREN> FormalList() <RPAREN> <LBRACE> [LOOKAHEAD(2) VarDeclList()]
+ 	[StatementList()] <RETURN> Exp() <SEMICOLON> }
+ void MethodDeclList() : {} { MethodDecl() ( MethodDecl() )*}
+ 
+ void VarDecl() : {} { Type() Identifier() }
+ void VarDeclList() : {} { VarDecl() ( <COMMA> VarDecl() )* }
+  
+ void Statement() : {} { Block() | If() | Print() | While() | LOOKAHEAD(2) Assign() | ArrayAssign() }
+ void StatementList() : {} { Statement() (Statement())* }
+ void Block() : {} { <LBRACE> [StatementList()] <RBRACE> }
+ void If() : {} { <IF> <LPAREN> Exp() <RPAREN> Statement() <ELSE> Statement() }
+ void Print() : {} { <PRINT> <LPAREN> Exp() <RPAREN> <SEMICOLON> }
+ void While() : {} { <WHILE> <LPAREN> Exp() <RPAREN> Statement() }
+ void Assign() : {} { Identifier() <ASSIGN> Exp() <SEMICOLON> }
+ void ArrayAssign() : {} { Identifier() <LBRACKET> Exp() <RBRACKET> <ASSIGN> Exp() <SEMICOLON> }
+   
+ void Type() : {} { BooleanType() | IdentifierType() | LOOKAHEAD(2) IntegerType() | IntArrayType() }
+ void BooleanType() : {} { <BOOLEAN> }
+ void IdentifierType() : {} { Identifier() }
+ void IntegerType() : {} { <INTEGER> }
+ void IntArrayType() : {} { <INTEGER> <LBRACKET> <RBRACKET> }
+ 
+ void Identifier() : {} { <IDENTIFIER> }
+  
+ /*END OF PARSER*/
+ 
+void Goal() :
+{}
+{
+  ( MiniJavaToken() )*	  
+  <EOF> 
+  { System.out.println("Successfully recognized all tokens"); }
+
+}
+
+void MiniJavaToken():
+{}
+{
+  "class"  |  <IDENTIFIER> | "{" | "public" | "static" | "void" |
+  "main" | "(" | "String"  | "[" | "]" | ")" | "}" | "extends" | ";"
+  | "return" | "," | "int" | "boolean" | "=" | "if" | "else" | "while"
+  | "System.out.println" | "&&" | "<" | "+" | "-" | "*" | "." |
+  "length" | <INTEGER_LITERAL> | "true" | "false" | "this" | "new" | 
+  "!" 
+}
+
+

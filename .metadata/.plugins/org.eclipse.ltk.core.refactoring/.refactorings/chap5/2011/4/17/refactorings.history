@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;PrettyPrintVisitor.java&apos; to &apos;visitor.PrettyPrintVisitor.java&apos;&#x0D;&#x0A;- Original project: &apos;chap5&apos;&#x0D;&#x0A;- Destination element: &apos;visitor.PrettyPrintVisitor.java&apos;&#x0D;&#x0A;- Original element: &apos;visitor.PrettyPrintVisitor.java&apos;" description="Copy compilation unit" destination="/&lt;visitor{PrettyPrintVisitor.java" element1="/&lt;visitor{PrettyPrintVisitor.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1303422302092" units="1" version="1.0"/>
+</session>

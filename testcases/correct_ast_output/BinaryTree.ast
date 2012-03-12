@@ -1,0 +1,241 @@
+Program(
+MainClass(Identifier(BinaryTree), Identifier(a), Print(Call(NewObject(BT), Identifier(Start), ())))
+ClassDeclList(
+ClassDeclSimple(Identifier(BT), (),
+(
+MethodDecl(IntegerType(), Identifier(Start), (), (
+VarDecl(IdentifierType(Tree), Identifier(root)), VarDecl(BooleanType(), Identifier(ntb)), VarDecl(IntegerType(), Identifier(nti))), (
+Assign(Identifier(root), NewObject(Tree)), 
+Assign(Identifier(ntb), Call(IdentifierExp(root), Identifier(Init), (IntegerLiteral(16)))), 
+Assign(Identifier(ntb), Call(IdentifierExp(root), Identifier(Print), ())), 
+Print(IntegerLiteral(100000000)), 
+Assign(Identifier(ntb), Call(IdentifierExp(root), Identifier(Insert), (IntegerLiteral(8)))), 
+Assign(Identifier(ntb), Call(IdentifierExp(root), Identifier(Print), ())), 
+Assign(Identifier(ntb), Call(IdentifierExp(root), Identifier(Insert), (IntegerLiteral(24)))), 
+Assign(Identifier(ntb), Call(IdentifierExp(root), Identifier(Insert), (IntegerLiteral(4)))), 
+Assign(Identifier(ntb), Call(IdentifierExp(root), Identifier(Insert), (IntegerLiteral(12)))), 
+Assign(Identifier(ntb), Call(IdentifierExp(root), Identifier(Insert), (IntegerLiteral(20)))), 
+Assign(Identifier(ntb), Call(IdentifierExp(root), Identifier(Insert), (IntegerLiteral(28)))), 
+Assign(Identifier(ntb), Call(IdentifierExp(root), Identifier(Insert), (IntegerLiteral(14)))), 
+Assign(Identifier(ntb), Call(IdentifierExp(root), Identifier(Print), ())), 
+Print(Call(IdentifierExp(root), Identifier(Search), (IntegerLiteral(24)))), 
+Print(Call(IdentifierExp(root), Identifier(Search), (IntegerLiteral(12)))), 
+Print(Call(IdentifierExp(root), Identifier(Search), (IntegerLiteral(16)))), 
+Print(Call(IdentifierExp(root), Identifier(Search), (IntegerLiteral(50)))), 
+Print(Call(IdentifierExp(root), Identifier(Search), (IntegerLiteral(12)))), 
+Assign(Identifier(ntb), Call(IdentifierExp(root), Identifier(Delete), (IntegerLiteral(12)))), 
+Assign(Identifier(ntb), Call(IdentifierExp(root), Identifier(Print), ())), 
+Print(Call(IdentifierExp(root), Identifier(Search), (IntegerLiteral(12))))), 
+IntegerLiteral(0))
+))
+, 
+ClassDeclSimple(Identifier(Tree), (VarDecl(IdentifierType(Tree), Identifier(left)), VarDecl(IdentifierType(Tree), Identifier(right)), VarDecl(IntegerType(), Identifier(key)), VarDecl(BooleanType(), Identifier(has_left)), VarDecl(BooleanType(), Identifier(has_right)), VarDecl(IdentifierType(Tree), Identifier(my_null))),
+(
+MethodDecl(BooleanType(), Identifier(Init), (Formal(IntegerType(), Identifier(v_key))), (
+), (
+Assign(Identifier(key), IdentifierExp(v_key)), 
+Assign(Identifier(has_left), False()), 
+Assign(Identifier(has_right), False())), 
+True())
+, 
+MethodDecl(BooleanType(), Identifier(SetRight), (Formal(IdentifierType(Tree), Identifier(rn))), (
+), (
+Assign(Identifier(right), IdentifierExp(rn))), 
+True())
+, 
+MethodDecl(BooleanType(), Identifier(SetLeft), (Formal(IdentifierType(Tree), Identifier(ln))), (
+), (
+Assign(Identifier(left), IdentifierExp(ln))), 
+True())
+, 
+MethodDecl(IdentifierType(Tree), Identifier(GetRight), (), (
+), (
+), 
+IdentifierExp(right))
+, 
+MethodDecl(IdentifierType(Tree), Identifier(GetLeft), (), (
+), (
+), 
+IdentifierExp(left))
+, 
+MethodDecl(IntegerType(), Identifier(GetKey), (), (
+), (
+), 
+IdentifierExp(key))
+, 
+MethodDecl(BooleanType(), Identifier(SetKey), (Formal(IntegerType(), Identifier(v_key))), (
+), (
+Assign(Identifier(key), IdentifierExp(v_key))), 
+True())
+, 
+MethodDecl(BooleanType(), Identifier(GetHas_Right), (), (
+), (
+), 
+IdentifierExp(has_right))
+, 
+MethodDecl(BooleanType(), Identifier(GetHas_Left), (), (
+), (
+), 
+IdentifierExp(has_left))
+, 
+MethodDecl(BooleanType(), Identifier(SetHas_Left), (Formal(BooleanType(), Identifier(val))), (
+), (
+Assign(Identifier(has_left), IdentifierExp(val))), 
+True())
+, 
+MethodDecl(BooleanType(), Identifier(SetHas_Right), (Formal(BooleanType(), Identifier(val))), (
+), (
+Assign(Identifier(has_right), IdentifierExp(val))), 
+True())
+, 
+MethodDecl(BooleanType(), Identifier(Compare), (Formal(IntegerType(), Identifier(num1)), Formal(IntegerType(), Identifier(num2))), (
+VarDecl(BooleanType(), Identifier(ntb)), VarDecl(IntegerType(), Identifier(nti))), (
+Assign(Identifier(ntb), False()), 
+Assign(Identifier(nti), Plus(IdentifierExp(num2), IntegerLiteral(1))), 
+If(LessThan(IdentifierExp(num1), IdentifierExp(num2)),
+Assign(Identifier(ntb), False()),
+If(Not(LessThan(IdentifierExp(num1), IdentifierExp(nti))),
+Assign(Identifier(ntb), False()),
+Assign(Identifier(ntb), True())))), 
+IdentifierExp(ntb))
+, 
+MethodDecl(BooleanType(), Identifier(Insert), (Formal(IntegerType(), Identifier(v_key))), (
+VarDecl(IdentifierType(Tree), Identifier(new_node)), VarDecl(BooleanType(), Identifier(ntb)), VarDecl(BooleanType(), Identifier(cont)), VarDecl(IntegerType(), Identifier(key_aux)), VarDecl(IdentifierType(Tree), Identifier(current_node))), (
+Assign(Identifier(new_node), NewObject(Tree)), 
+Assign(Identifier(ntb), Call(IdentifierExp(new_node), Identifier(Init), (IdentifierExp(v_key)))), 
+Assign(Identifier(current_node), This()), 
+Assign(Identifier(cont), True()), 
+While(IdentifierExp(cont),
+Block((
+Assign(Identifier(key_aux), Call(IdentifierExp(current_node), Identifier(GetKey), ())),
+If(LessThan(IdentifierExp(v_key), IdentifierExp(key_aux)),
+Block((
+If(Call(IdentifierExp(current_node), Identifier(GetHas_Left), ()),
+Assign(Identifier(current_node), Call(IdentifierExp(current_node), Identifier(GetLeft), ())),
+Block((
+Assign(Identifier(cont), False()),
+Assign(Identifier(ntb), Call(IdentifierExp(current_node), Identifier(SetHas_Left), (True()))),
+Assign(Identifier(ntb), Call(IdentifierExp(current_node), Identifier(SetLeft), (IdentifierExp(new_node))))))))),
+Block((
+If(Call(IdentifierExp(current_node), Identifier(GetHas_Right), ()),
+Assign(Identifier(current_node), Call(IdentifierExp(current_node), Identifier(GetRight), ())),
+Block((
+Assign(Identifier(cont), False()),
+Assign(Identifier(ntb), Call(IdentifierExp(current_node), Identifier(SetHas_Right), (True()))),
+Assign(Identifier(ntb), Call(IdentifierExp(current_node), Identifier(SetRight), (IdentifierExp(new_node)))))))))))))), 
+True())
+, 
+MethodDecl(BooleanType(), Identifier(Delete), (Formal(IntegerType(), Identifier(v_key))), (
+VarDecl(IdentifierType(Tree), Identifier(current_node)), VarDecl(IdentifierType(Tree), Identifier(parent_node)), VarDecl(BooleanType(), Identifier(cont)), VarDecl(BooleanType(), Identifier(found)), VarDecl(BooleanType(), Identifier(is_root)), VarDecl(IntegerType(), Identifier(key_aux)), VarDecl(BooleanType(), Identifier(ntb))), (
+Assign(Identifier(current_node), This()), 
+Assign(Identifier(parent_node), This()), 
+Assign(Identifier(cont), True()), 
+Assign(Identifier(found), False()), 
+Assign(Identifier(is_root), True()), 
+While(IdentifierExp(cont),
+Block((
+Assign(Identifier(key_aux), Call(IdentifierExp(current_node), Identifier(GetKey), ())),
+If(LessThan(IdentifierExp(v_key), IdentifierExp(key_aux)),
+If(Call(IdentifierExp(current_node), Identifier(GetHas_Left), ()),
+Block((
+Assign(Identifier(parent_node), IdentifierExp(current_node)),
+Assign(Identifier(current_node), Call(IdentifierExp(current_node), Identifier(GetLeft), ())))),
+Assign(Identifier(cont), False())),
+If(LessThan(IdentifierExp(key_aux), IdentifierExp(v_key)),
+If(Call(IdentifierExp(current_node), Identifier(GetHas_Right), ()),
+Block((
+Assign(Identifier(parent_node), IdentifierExp(current_node)),
+Assign(Identifier(current_node), Call(IdentifierExp(current_node), Identifier(GetRight), ())))),
+Assign(Identifier(cont), False())),
+Block((
+If(IdentifierExp(is_root),
+If(And(Not(Call(IdentifierExp(current_node), Identifier(GetHas_Right), ())), Not(Call(IdentifierExp(current_node), Identifier(GetHas_Left), ()))),
+Assign(Identifier(ntb), True()),
+Assign(Identifier(ntb), Call(This(), Identifier(Remove), (IdentifierExp(parent_node), IdentifierExp(current_node))))),
+Assign(Identifier(ntb), Call(This(), Identifier(Remove), (IdentifierExp(parent_node), IdentifierExp(current_node))))),
+Assign(Identifier(found), True()),
+Assign(Identifier(cont), False()))))),
+Assign(Identifier(is_root), False()))))), 
+IdentifierExp(found))
+, 
+MethodDecl(BooleanType(), Identifier(Remove), (Formal(IdentifierType(Tree), Identifier(p_node)), Formal(IdentifierType(Tree), Identifier(c_node))), (
+VarDecl(BooleanType(), Identifier(ntb)), VarDecl(IntegerType(), Identifier(auxkey1)), VarDecl(IntegerType(), Identifier(auxkey2))), (
+If(Call(IdentifierExp(c_node), Identifier(GetHas_Left), ()),
+Assign(Identifier(ntb), Call(This(), Identifier(RemoveLeft), (IdentifierExp(p_node), IdentifierExp(c_node)))),
+If(Call(IdentifierExp(c_node), Identifier(GetHas_Right), ()),
+Assign(Identifier(ntb), Call(This(), Identifier(RemoveRight), (IdentifierExp(p_node), IdentifierExp(c_node)))),
+Block((
+Assign(Identifier(auxkey1), Call(IdentifierExp(c_node), Identifier(GetKey), ())),
+Assign(Identifier(auxkey2), Call(Call(IdentifierExp(p_node), Identifier(GetLeft), ()), Identifier(GetKey), ())),
+If(Call(This(), Identifier(Compare), (IdentifierExp(auxkey1), IdentifierExp(auxkey2))),
+Block((
+Assign(Identifier(ntb), Call(IdentifierExp(p_node), Identifier(SetLeft), (IdentifierExp(my_null)))),
+Assign(Identifier(ntb), Call(IdentifierExp(p_node), Identifier(SetHas_Left), (False()))))),
+Block((
+Assign(Identifier(ntb), Call(IdentifierExp(p_node), Identifier(SetRight), (IdentifierExp(my_null)))),
+Assign(Identifier(ntb), Call(IdentifierExp(p_node), Identifier(SetHas_Right), (False()))))))))))), 
+True())
+, 
+MethodDecl(BooleanType(), Identifier(RemoveRight), (Formal(IdentifierType(Tree), Identifier(p_node)), Formal(IdentifierType(Tree), Identifier(c_node))), (
+VarDecl(BooleanType(), Identifier(ntb))), (
+While(Call(IdentifierExp(c_node), Identifier(GetHas_Right), ()),
+Block((
+Assign(Identifier(ntb), Call(IdentifierExp(c_node), Identifier(SetKey), (Call(Call(IdentifierExp(c_node), Identifier(GetRight), ()), Identifier(GetKey), ())))),
+Assign(Identifier(p_node), IdentifierExp(c_node)),
+Assign(Identifier(c_node), Call(IdentifierExp(c_node), Identifier(GetRight), ()))))), 
+Assign(Identifier(ntb), Call(IdentifierExp(p_node), Identifier(SetRight), (IdentifierExp(my_null)))), 
+Assign(Identifier(ntb), Call(IdentifierExp(p_node), Identifier(SetHas_Right), (False())))), 
+True())
+, 
+MethodDecl(BooleanType(), Identifier(RemoveLeft), (Formal(IdentifierType(Tree), Identifier(p_node)), Formal(IdentifierType(Tree), Identifier(c_node))), (
+VarDecl(BooleanType(), Identifier(ntb))), (
+While(Call(IdentifierExp(c_node), Identifier(GetHas_Left), ()),
+Block((
+Assign(Identifier(ntb), Call(IdentifierExp(c_node), Identifier(SetKey), (Call(Call(IdentifierExp(c_node), Identifier(GetLeft), ()), Identifier(GetKey), ())))),
+Assign(Identifier(p_node), IdentifierExp(c_node)),
+Assign(Identifier(c_node), Call(IdentifierExp(c_node), Identifier(GetLeft), ()))))), 
+Assign(Identifier(ntb), Call(IdentifierExp(p_node), Identifier(SetLeft), (IdentifierExp(my_null)))), 
+Assign(Identifier(ntb), Call(IdentifierExp(p_node), Identifier(SetHas_Left), (False())))), 
+True())
+, 
+MethodDecl(IntegerType(), Identifier(Search), (Formal(IntegerType(), Identifier(v_key))), (
+VarDecl(BooleanType(), Identifier(cont)), VarDecl(IntegerType(), Identifier(ifound)), VarDecl(IdentifierType(Tree), Identifier(current_node)), VarDecl(IntegerType(), Identifier(key_aux))), (
+Assign(Identifier(current_node), This()), 
+Assign(Identifier(cont), True()), 
+Assign(Identifier(ifound), IntegerLiteral(0)), 
+While(IdentifierExp(cont),
+Block((
+Assign(Identifier(key_aux), Call(IdentifierExp(current_node), Identifier(GetKey), ())),
+If(LessThan(IdentifierExp(v_key), IdentifierExp(key_aux)),
+If(Call(IdentifierExp(current_node), Identifier(GetHas_Left), ()),
+Assign(Identifier(current_node), Call(IdentifierExp(current_node), Identifier(GetLeft), ())),
+Assign(Identifier(cont), False())),
+If(LessThan(IdentifierExp(key_aux), IdentifierExp(v_key)),
+If(Call(IdentifierExp(current_node), Identifier(GetHas_Right), ()),
+Assign(Identifier(current_node), Call(IdentifierExp(current_node), Identifier(GetRight), ())),
+Assign(Identifier(cont), False())),
+Block((
+Assign(Identifier(ifound), IntegerLiteral(1)),
+Assign(Identifier(cont), False()))))))))), 
+IdentifierExp(ifound))
+, 
+MethodDecl(BooleanType(), Identifier(Print), (), (
+VarDecl(IdentifierType(Tree), Identifier(current_node)), VarDecl(BooleanType(), Identifier(ntb))), (
+Assign(Identifier(current_node), This()), 
+Assign(Identifier(ntb), Call(This(), Identifier(RecPrint), (IdentifierExp(current_node))))), 
+True())
+, 
+MethodDecl(BooleanType(), Identifier(RecPrint), (Formal(IdentifierType(Tree), Identifier(node))), (
+VarDecl(BooleanType(), Identifier(ntb))), (
+If(Call(IdentifierExp(node), Identifier(GetHas_Left), ()),
+Block((
+Assign(Identifier(ntb), Call(This(), Identifier(RecPrint), (Call(IdentifierExp(node), Identifier(GetLeft), ())))))),
+Assign(Identifier(ntb), True())), 
+Print(Call(IdentifierExp(node), Identifier(GetKey), ())), 
+If(Call(IdentifierExp(node), Identifier(GetHas_Right), ()),
+Block((
+Assign(Identifier(ntb), Call(This(), Identifier(RecPrint), (Call(IdentifierExp(node), Identifier(GetRight), ())))))),
+Assign(Identifier(ntb), True()))), 
+True())
+))
+))

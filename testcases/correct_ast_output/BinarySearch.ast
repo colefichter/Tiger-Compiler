@@ -1,0 +1,110 @@
+Program(
+MainClass(Identifier(BinarySearch), Identifier(a), Print(Call(NewObject(BS), Identifier(Start), (IntegerLiteral(20)))))
+ClassDeclList(
+ClassDeclSimple(Identifier(BS), (VarDecl(IntArrayType(), Identifier(number)), VarDecl(IntegerType(), Identifier(size))),
+(
+MethodDecl(IntegerType(), Identifier(Start), (Formal(IntegerType(), Identifier(sz))), (
+VarDecl(IntegerType(), Identifier(aux01)), VarDecl(IntegerType(), Identifier(aux02))), (
+Assign(Identifier(aux01), Call(This(), Identifier(Init), (IdentifierExp(sz)))), 
+Assign(Identifier(aux02), Call(This(), Identifier(Print), ())), 
+If(Call(This(), Identifier(Search), (IntegerLiteral(8))),
+Print(IntegerLiteral(1)),
+Print(IntegerLiteral(0))), 
+If(Call(This(), Identifier(Search), (IntegerLiteral(19))),
+Print(IntegerLiteral(1)),
+Print(IntegerLiteral(0))), 
+If(Call(This(), Identifier(Search), (IntegerLiteral(20))),
+Print(IntegerLiteral(1)),
+Print(IntegerLiteral(0))), 
+If(Call(This(), Identifier(Search), (IntegerLiteral(21))),
+Print(IntegerLiteral(1)),
+Print(IntegerLiteral(0))), 
+If(Call(This(), Identifier(Search), (IntegerLiteral(37))),
+Print(IntegerLiteral(1)),
+Print(IntegerLiteral(0))), 
+If(Call(This(), Identifier(Search), (IntegerLiteral(38))),
+Print(IntegerLiteral(1)),
+Print(IntegerLiteral(0))), 
+If(Call(This(), Identifier(Search), (IntegerLiteral(39))),
+Print(IntegerLiteral(1)),
+Print(IntegerLiteral(0))), 
+If(Call(This(), Identifier(Search), (IntegerLiteral(50))),
+Print(IntegerLiteral(1)),
+Print(IntegerLiteral(0)))), 
+IntegerLiteral(999))
+, 
+MethodDecl(BooleanType(), Identifier(Search), (Formal(IntegerType(), Identifier(num))), (
+VarDecl(BooleanType(), Identifier(bs01)), VarDecl(IntegerType(), Identifier(right)), VarDecl(IntegerType(), Identifier(left)), VarDecl(BooleanType(), Identifier(var_cont)), VarDecl(IntegerType(), Identifier(medium)), VarDecl(IntegerType(), Identifier(aux01)), VarDecl(IntegerType(), Identifier(nt))), (
+Assign(Identifier(aux01), IntegerLiteral(0)), 
+Assign(Identifier(bs01), False()), 
+Assign(Identifier(right), ArrayLength(IdentifierExp(number))), 
+Assign(Identifier(right), Minus(IdentifierExp(right), IntegerLiteral(1))), 
+Assign(Identifier(left), IntegerLiteral(0)), 
+Assign(Identifier(var_cont), True()), 
+While(IdentifierExp(var_cont),
+Block((
+Assign(Identifier(medium), Plus(IdentifierExp(left), IdentifierExp(right))),
+Assign(Identifier(medium), Call(This(), Identifier(Div), (IdentifierExp(medium)))),
+Assign(Identifier(aux01), ArrayLookup(IdentifierExp(number), IdentifierExp(medium))),
+If(LessThan(IdentifierExp(num), IdentifierExp(aux01)),
+Assign(Identifier(right), Minus(IdentifierExp(medium), IntegerLiteral(1))),
+Assign(Identifier(left), Plus(IdentifierExp(medium), IntegerLiteral(1)))),
+If(Call(This(), Identifier(Compare), (IdentifierExp(aux01), IdentifierExp(num))),
+Assign(Identifier(var_cont), False()),
+Assign(Identifier(var_cont), True())),
+If(LessThan(IdentifierExp(right), IdentifierExp(left)),
+Assign(Identifier(var_cont), False()),
+Assign(Identifier(nt), IntegerLiteral(0)))))), 
+If(Call(This(), Identifier(Compare), (IdentifierExp(aux01), IdentifierExp(num))),
+Assign(Identifier(bs01), True()),
+Assign(Identifier(bs01), False()))), 
+IdentifierExp(bs01))
+, 
+MethodDecl(IntegerType(), Identifier(Div), (Formal(IntegerType(), Identifier(num))), (
+VarDecl(IntegerType(), Identifier(count01)), VarDecl(IntegerType(), Identifier(count02)), VarDecl(IntegerType(), Identifier(aux03))), (
+Assign(Identifier(count01), IntegerLiteral(0)), 
+Assign(Identifier(count02), IntegerLiteral(0)), 
+Assign(Identifier(aux03), Minus(IdentifierExp(num), IntegerLiteral(1))), 
+While(LessThan(IdentifierExp(count02), IdentifierExp(aux03)),
+Block((
+Assign(Identifier(count01), Plus(IdentifierExp(count01), IntegerLiteral(1))),
+Assign(Identifier(count02), Plus(IdentifierExp(count02), IntegerLiteral(2))))))), 
+IdentifierExp(count01))
+, 
+MethodDecl(BooleanType(), Identifier(Compare), (Formal(IntegerType(), Identifier(num1)), Formal(IntegerType(), Identifier(num2))), (
+VarDecl(BooleanType(), Identifier(retval)), VarDecl(IntegerType(), Identifier(aux02))), (
+Assign(Identifier(retval), False()), 
+Assign(Identifier(aux02), Plus(IdentifierExp(num2), IntegerLiteral(1))), 
+If(LessThan(IdentifierExp(num1), IdentifierExp(num2)),
+Assign(Identifier(retval), False()),
+If(Not(LessThan(IdentifierExp(num1), IdentifierExp(aux02))),
+Assign(Identifier(retval), False()),
+Assign(Identifier(retval), True())))), 
+IdentifierExp(retval))
+, 
+MethodDecl(IntegerType(), Identifier(Print), (), (
+VarDecl(IntegerType(), Identifier(j))), (
+Assign(Identifier(j), IntegerLiteral(1)), 
+While(LessThan(IdentifierExp(j), IdentifierExp(size)),
+Block((
+Print(ArrayLookup(IdentifierExp(number), IdentifierExp(j))),
+Assign(Identifier(j), Plus(IdentifierExp(j), IntegerLiteral(1)))))), 
+Print(IntegerLiteral(99999))), 
+IntegerLiteral(0))
+, 
+MethodDecl(IntegerType(), Identifier(Init), (Formal(IntegerType(), Identifier(sz))), (
+VarDecl(IntegerType(), Identifier(j)), VarDecl(IntegerType(), Identifier(k)), VarDecl(IntegerType(), Identifier(aux02)), VarDecl(IntegerType(), Identifier(aux01))), (
+Assign(Identifier(size), IdentifierExp(sz)), 
+Assign(Identifier(number), NewArray(IdentifierExp(sz))), 
+Assign(Identifier(j), IntegerLiteral(1)), 
+Assign(Identifier(k), Plus(IdentifierExp(size), IntegerLiteral(1))), 
+While(LessThan(IdentifierExp(j), IdentifierExp(size)),
+Block((
+Assign(Identifier(aux01), Times(IntegerLiteral(2), IdentifierExp(j))),
+Assign(Identifier(aux02), Minus(IdentifierExp(k), IntegerLiteral(3))),
+ArrayAssign(Identifier(number), IdentifierExp(j), Plus(IdentifierExp(aux01), IdentifierExp(aux02))),
+Assign(Identifier(j), Plus(IdentifierExp(j), IntegerLiteral(1))),
+Assign(Identifier(k), Minus(IdentifierExp(k), IntegerLiteral(1))))))), 
+IntegerLiteral(0))
+))
+))

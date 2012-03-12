@@ -1,0 +1,115 @@
+options {
+  JAVA_UNICODE_ESCAPE = true;
+}
+
+PARSER_BEGIN(MiniJavaParser)
+  public class MiniJavaParser {}
+PARSER_END(MiniJavaParser)
+
+
+// Insert a specification of a lexical analysis here. 
+
+
+TOKEN :
+{
+< ID: <LETTER> (<LETTER>|<DIGIT>)* >
+| < #LETTER: ["_","a"-"z","A"-"Z"] >
+| < #DIGIT: ["0"-"9"] >
+}
+
+TOKEN :
+{
+< INT: "int">
+| < INT_ARRAY: <INT><LBRACKET><RBRACKET> >
+| < BOOLEAN: "boolean">
+| < CLASS: "class">
+| < THIS: "this">
+| < EXTENDS: "extends">
+| < PUBLIC: "public">
+| < STATIC: "static">
+| < VOID: "void">
+| < RETURN: "return">
+| < MAIN: "main">
+| < IF: "if">
+| < ELSE: "else">
+| < WHILE: "while">
+| < PRINT: "System.out.println">
+| < NEW: "new">
+| < STRING: "String">
+| < LENGTH: "length">
+}
+
+TOKEN :
+{
+< LPAREN: "(" >
+| < RPAREN: ")" >
+| < LBRACE: "{" >
+| < RBRACE: "}" >
+| < LBRACKET: "[" >
+| < RBRACKET: "]" >
+| < SEMICOLON: ";" >
+| < COMMA: "," >
+| < DOT: "." >
+}
+
+SKIP :
+{
+" "
+| "\t"
+| "\n"
+| "\r"
+}
+
+TOKEN :
+{
+< ASSIGN: "=" >
+| < GT: ">" >
+| < LT: "<" >
+| < NOT: "!" >
+| < EQ: "==" >
+| < OR: "||" >
+| < AND: "&&" >
+| < PLUS: "+" >
+| < MINUS: "-" >
+| < STAR: "*" >
+| < SLASH: "/" >
+}
+
+SPECIAL_TOKEN :
+{
+<SINGLE_LINE_COMMENT: "//" (~["\n","\r"])* ("\n"|"\r"|"\r\n")>
+|<FORMAL_COMMENT: "/**" (~["*"])* "*" ("*" | (~["*","/"] (~["*"])* "*"))* "/">
+|<MULTI_LINE_COMMENT: "/*" (~["*"])* "*" ("*" | (~["*","/"] (~["*"])* "*"))* "/">
+}
+
+TOKEN :
+{
+< INTEGER_LITERAL: ["1"-"9"] (["0"-"9"])*>
+| < BOOLEAN_LITERAL: ("true"|"false")>
+}
+
+
+
+// The following is a simple grammar that will allow you
+// to test the generated lexer.
+
+
+void Goal() :
+{}
+{
+  ( MiniJavaToken() )*
+  <EOF>
+}
+
+void MiniJavaToken():
+{}
+{
+  "class"  |  <ID> | "{" | "public" | "static" | "void" |
+  "main" | "(" | "String"  | "[" | "]" | ")" | "}" | "extends" | ";"
+  | "return" | "," | "int" | "boolean" | "=" | "if" | "else" | "while"
+  | "System.out.println" | "&&" | "<" | "+" | "-" | "*" | "." |
+  "length" | <INTEGER_LITERAL> | "true" | "false" | "this" | "new" |
+  "!"
+}
+
+

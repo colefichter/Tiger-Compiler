@@ -1,0 +1,205 @@
+Program(
+MainClass(Identifier(LinkedList), Identifier(a), Print(Call(NewObject(LL), Identifier(Start), ())))
+ClassDeclList(
+ClassDeclSimple(Identifier(Element), (VarDecl(IntegerType(), Identifier(Age)), VarDecl(IntegerType(), Identifier(Salary)), VarDecl(BooleanType(), Identifier(Married))),
+(
+MethodDecl(BooleanType(), Identifier(Init), (Formal(IntegerType(), Identifier(v_Age)), Formal(IntegerType(), Identifier(v_Salary)), Formal(BooleanType(), Identifier(v_Married))), (
+), (
+Assign(Identifier(Age), IdentifierExp(v_Age)), 
+Assign(Identifier(Salary), IdentifierExp(v_Salary)), 
+Assign(Identifier(Married), IdentifierExp(v_Married))), 
+True())
+, 
+MethodDecl(IntegerType(), Identifier(GetAge), (), (
+), (
+), 
+IdentifierExp(Age))
+, 
+MethodDecl(IntegerType(), Identifier(GetSalary), (), (
+), (
+), 
+IdentifierExp(Salary))
+, 
+MethodDecl(BooleanType(), Identifier(GetMarried), (), (
+), (
+), 
+IdentifierExp(Married))
+, 
+MethodDecl(BooleanType(), Identifier(Equal), (Formal(IdentifierType(Element), Identifier(other))), (
+VarDecl(BooleanType(), Identifier(ret_val)), VarDecl(IntegerType(), Identifier(aux01)), VarDecl(IntegerType(), Identifier(aux02)), VarDecl(IntegerType(), Identifier(nt))), (
+Assign(Identifier(ret_val), True()), 
+Assign(Identifier(aux01), Call(IdentifierExp(other), Identifier(GetAge), ())), 
+If(Not(Call(This(), Identifier(Compare), (IdentifierExp(aux01), IdentifierExp(Age)))),
+Assign(Identifier(ret_val), False()),
+Block((
+Assign(Identifier(aux02), Call(IdentifierExp(other), Identifier(GetSalary), ())),
+If(Not(Call(This(), Identifier(Compare), (IdentifierExp(aux02), IdentifierExp(Salary)))),
+Assign(Identifier(ret_val), False()),
+If(IdentifierExp(Married),
+If(Not(Call(IdentifierExp(other), Identifier(GetMarried), ())),
+Assign(Identifier(ret_val), False()),
+Assign(Identifier(nt), IntegerLiteral(0))),
+If(Call(IdentifierExp(other), Identifier(GetMarried), ()),
+Assign(Identifier(ret_val), False()),
+Assign(Identifier(nt), IntegerLiteral(0))))))))), 
+IdentifierExp(ret_val))
+, 
+MethodDecl(BooleanType(), Identifier(Compare), (Formal(IntegerType(), Identifier(num1)), Formal(IntegerType(), Identifier(num2))), (
+VarDecl(BooleanType(), Identifier(retval)), VarDecl(IntegerType(), Identifier(aux02))), (
+Assign(Identifier(retval), False()), 
+Assign(Identifier(aux02), Plus(IdentifierExp(num2), IntegerLiteral(1))), 
+If(LessThan(IdentifierExp(num1), IdentifierExp(num2)),
+Assign(Identifier(retval), False()),
+If(Not(LessThan(IdentifierExp(num1), IdentifierExp(aux02))),
+Assign(Identifier(retval), False()),
+Assign(Identifier(retval), True())))), 
+IdentifierExp(retval))
+))
+, 
+ClassDeclSimple(Identifier(List), (VarDecl(IdentifierType(Element), Identifier(elem)), VarDecl(IdentifierType(List), Identifier(next)), VarDecl(BooleanType(), Identifier(end))),
+(
+MethodDecl(BooleanType(), Identifier(Init), (), (
+), (
+Assign(Identifier(end), True())), 
+True())
+, 
+MethodDecl(BooleanType(), Identifier(InitNew), (Formal(IdentifierType(Element), Identifier(v_elem)), Formal(IdentifierType(List), Identifier(v_next)), Formal(BooleanType(), Identifier(v_end))), (
+), (
+Assign(Identifier(end), IdentifierExp(v_end)), 
+Assign(Identifier(elem), IdentifierExp(v_elem)), 
+Assign(Identifier(next), IdentifierExp(v_next))), 
+True())
+, 
+MethodDecl(IdentifierType(List), Identifier(Insert), (Formal(IdentifierType(Element), Identifier(new_elem))), (
+VarDecl(BooleanType(), Identifier(ret_val)), VarDecl(IdentifierType(List), Identifier(aux03)), VarDecl(IdentifierType(List), Identifier(aux02))), (
+Assign(Identifier(aux03), This()), 
+Assign(Identifier(aux02), NewObject(List)), 
+Assign(Identifier(ret_val), Call(IdentifierExp(aux02), Identifier(InitNew), (IdentifierExp(new_elem), IdentifierExp(aux03), False())))), 
+IdentifierExp(aux02))
+, 
+MethodDecl(BooleanType(), Identifier(SetNext), (Formal(IdentifierType(List), Identifier(v_next))), (
+), (
+Assign(Identifier(next), IdentifierExp(v_next))), 
+True())
+, 
+MethodDecl(IdentifierType(List), Identifier(Delete), (Formal(IdentifierType(Element), Identifier(e))), (
+VarDecl(IdentifierType(List), Identifier(my_head)), VarDecl(BooleanType(), Identifier(ret_val)), VarDecl(BooleanType(), Identifier(aux05)), VarDecl(IdentifierType(List), Identifier(aux01)), VarDecl(IdentifierType(List), Identifier(prev)), VarDecl(BooleanType(), Identifier(var_end)), VarDecl(IdentifierType(Element), Identifier(var_elem)), VarDecl(IntegerType(), Identifier(aux04)), VarDecl(IntegerType(), Identifier(nt))), (
+Assign(Identifier(my_head), This()), 
+Assign(Identifier(ret_val), False()), 
+Assign(Identifier(aux04), Minus(IntegerLiteral(0), IntegerLiteral(1))), 
+Assign(Identifier(aux01), This()), 
+Assign(Identifier(prev), This()), 
+Assign(Identifier(var_end), IdentifierExp(end)), 
+Assign(Identifier(var_elem), IdentifierExp(elem)), 
+While(And(Not(IdentifierExp(var_end)), Not(IdentifierExp(ret_val))),
+Block((
+If(Call(IdentifierExp(e), Identifier(Equal), (IdentifierExp(var_elem))),
+Block((
+Assign(Identifier(ret_val), True()),
+If(LessThan(IdentifierExp(aux04), IntegerLiteral(0)),
+Block((
+Assign(Identifier(my_head), Call(IdentifierExp(aux01), Identifier(GetNext), ())))),
+Block((
+Print(Minus(IntegerLiteral(0), IntegerLiteral(555))),
+Assign(Identifier(aux05), Call(IdentifierExp(prev), Identifier(SetNext), (Call(IdentifierExp(aux01), Identifier(GetNext), ())))),
+Print(Minus(IntegerLiteral(0), IntegerLiteral(555)))))))),
+Assign(Identifier(nt), IntegerLiteral(0))),
+If(Not(IdentifierExp(ret_val)),
+Block((
+Assign(Identifier(prev), IdentifierExp(aux01)),
+Assign(Identifier(aux01), Call(IdentifierExp(aux01), Identifier(GetNext), ())),
+Assign(Identifier(var_end), Call(IdentifierExp(aux01), Identifier(GetEnd), ())),
+Assign(Identifier(var_elem), Call(IdentifierExp(aux01), Identifier(GetElem), ())),
+Assign(Identifier(aux04), IntegerLiteral(1)))),
+Assign(Identifier(nt), IntegerLiteral(0))))))), 
+IdentifierExp(my_head))
+, 
+MethodDecl(IntegerType(), Identifier(Search), (Formal(IdentifierType(Element), Identifier(e))), (
+VarDecl(IntegerType(), Identifier(int_ret_val)), VarDecl(IdentifierType(List), Identifier(aux01)), VarDecl(IdentifierType(Element), Identifier(var_elem)), VarDecl(BooleanType(), Identifier(var_end)), VarDecl(IntegerType(), Identifier(nt))), (
+Assign(Identifier(int_ret_val), IntegerLiteral(0)), 
+Assign(Identifier(aux01), This()), 
+Assign(Identifier(var_end), IdentifierExp(end)), 
+Assign(Identifier(var_elem), IdentifierExp(elem)), 
+While(Not(IdentifierExp(var_end)),
+Block((
+If(Call(IdentifierExp(e), Identifier(Equal), (IdentifierExp(var_elem))),
+Block((
+Assign(Identifier(int_ret_val), IntegerLiteral(1)))),
+Assign(Identifier(nt), IntegerLiteral(0))),
+Assign(Identifier(aux01), Call(IdentifierExp(aux01), Identifier(GetNext), ())),
+Assign(Identifier(var_end), Call(IdentifierExp(aux01), Identifier(GetEnd), ())),
+Assign(Identifier(var_elem), Call(IdentifierExp(aux01), Identifier(GetElem), ())))))), 
+IdentifierExp(int_ret_val))
+, 
+MethodDecl(BooleanType(), Identifier(GetEnd), (), (
+), (
+), 
+IdentifierExp(end))
+, 
+MethodDecl(IdentifierType(Element), Identifier(GetElem), (), (
+), (
+), 
+IdentifierExp(elem))
+, 
+MethodDecl(IdentifierType(List), Identifier(GetNext), (), (
+), (
+), 
+IdentifierExp(next))
+, 
+MethodDecl(BooleanType(), Identifier(Print), (), (
+VarDecl(IdentifierType(List), Identifier(aux01)), VarDecl(BooleanType(), Identifier(var_end)), VarDecl(IdentifierType(Element), Identifier(var_elem))), (
+Assign(Identifier(aux01), This()), 
+Assign(Identifier(var_end), IdentifierExp(end)), 
+Assign(Identifier(var_elem), IdentifierExp(elem)), 
+While(Not(IdentifierExp(var_end)),
+Block((
+Print(Call(IdentifierExp(var_elem), Identifier(GetAge), ())),
+Assign(Identifier(aux01), Call(IdentifierExp(aux01), Identifier(GetNext), ())),
+Assign(Identifier(var_end), Call(IdentifierExp(aux01), Identifier(GetEnd), ())),
+Assign(Identifier(var_elem), Call(IdentifierExp(aux01), Identifier(GetElem), ())))))), 
+True())
+))
+, 
+ClassDeclSimple(Identifier(LL), (),
+(
+MethodDecl(IntegerType(), Identifier(Start), (), (
+VarDecl(IdentifierType(List), Identifier(head)), VarDecl(IdentifierType(List), Identifier(last_elem)), VarDecl(BooleanType(), Identifier(aux01)), VarDecl(IdentifierType(Element), Identifier(el01)), VarDecl(IdentifierType(Element), Identifier(el02)), VarDecl(IdentifierType(Element), Identifier(el03))), (
+Assign(Identifier(last_elem), NewObject(List)), 
+Assign(Identifier(aux01), Call(IdentifierExp(last_elem), Identifier(Init), ())), 
+Assign(Identifier(head), IdentifierExp(last_elem)), 
+Assign(Identifier(aux01), Call(IdentifierExp(head), Identifier(Init), ())), 
+Assign(Identifier(aux01), Call(IdentifierExp(head), Identifier(Print), ())), 
+Assign(Identifier(el01), NewObject(Element)), 
+Assign(Identifier(aux01), Call(IdentifierExp(el01), Identifier(Init), (IntegerLiteral(25), IntegerLiteral(37000), False()))), 
+Assign(Identifier(head), Call(IdentifierExp(head), Identifier(Insert), (IdentifierExp(el01)))), 
+Assign(Identifier(aux01), Call(IdentifierExp(head), Identifier(Print), ())), 
+Print(IntegerLiteral(10000000)), 
+Assign(Identifier(el01), NewObject(Element)), 
+Assign(Identifier(aux01), Call(IdentifierExp(el01), Identifier(Init), (IntegerLiteral(39), IntegerLiteral(42000), True()))), 
+Assign(Identifier(el02), IdentifierExp(el01)), 
+Assign(Identifier(head), Call(IdentifierExp(head), Identifier(Insert), (IdentifierExp(el01)))), 
+Assign(Identifier(aux01), Call(IdentifierExp(head), Identifier(Print), ())), 
+Print(IntegerLiteral(10000000)), 
+Assign(Identifier(el01), NewObject(Element)), 
+Assign(Identifier(aux01), Call(IdentifierExp(el01), Identifier(Init), (IntegerLiteral(22), IntegerLiteral(34000), False()))), 
+Assign(Identifier(head), Call(IdentifierExp(head), Identifier(Insert), (IdentifierExp(el01)))), 
+Assign(Identifier(aux01), Call(IdentifierExp(head), Identifier(Print), ())), 
+Assign(Identifier(el03), NewObject(Element)), 
+Assign(Identifier(aux01), Call(IdentifierExp(el03), Identifier(Init), (IntegerLiteral(27), IntegerLiteral(34000), False()))), 
+Print(Call(IdentifierExp(head), Identifier(Search), (IdentifierExp(el02)))), 
+Print(Call(IdentifierExp(head), Identifier(Search), (IdentifierExp(el03)))), 
+Print(IntegerLiteral(10000000)), 
+Assign(Identifier(el01), NewObject(Element)), 
+Assign(Identifier(aux01), Call(IdentifierExp(el01), Identifier(Init), (IntegerLiteral(28), IntegerLiteral(35000), False()))), 
+Assign(Identifier(head), Call(IdentifierExp(head), Identifier(Insert), (IdentifierExp(el01)))), 
+Assign(Identifier(aux01), Call(IdentifierExp(head), Identifier(Print), ())), 
+Print(IntegerLiteral(2220000)), 
+Assign(Identifier(head), Call(IdentifierExp(head), Identifier(Delete), (IdentifierExp(el02)))), 
+Assign(Identifier(aux01), Call(IdentifierExp(head), Identifier(Print), ())), 
+Print(IntegerLiteral(33300000)), 
+Assign(Identifier(head), Call(IdentifierExp(head), Identifier(Delete), (IdentifierExp(el01)))), 
+Assign(Identifier(aux01), Call(IdentifierExp(head), Identifier(Print), ())), 
+Print(IntegerLiteral(44440000))), 
+IntegerLiteral(0))
+))
+))

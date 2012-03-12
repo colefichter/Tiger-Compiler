@@ -1,0 +1,78 @@
+options {
+  JAVA_UNICODE_ESCAPE = true;
+}
+
+PARSER_BEGIN(MiniJavaParser)
+  public class MiniJavaParser {}
+PARSER_END(MiniJavaParser)
+
+
+// Insert a specification of a lexical analysis here. 
+
+SKIP : {
+	  < "//" (["a"-"z"] | ["A"-"Z"] | ["0" - "9"])* ("\n" | "\r" | "\r\n") >
+  	| < "/*" (["a"-"z","A"-"Z","0"-"9"])* "*/" >
+	| < " " >
+  	| < "\t" >
+  	| < "\n" >
+}
+
+TOKEN : {
+	  < PROGRAM: <MAINCLASS> (<CLASSDECL>)* >
+	| < #MAINCLASS: "class" <IDENTIFIER> "{" "public" "static" "void" "main" "(" "String" "[" "]" <IDENTIFIER> ")" "{" <STATEMENT> "}" "}" >
+	| < CLASSDECL: "class" <IDENTIFIER> "{" (<VARDECL>)* (<METHODDECL>)* "}" >
+	| < VARDECL: <TYPE> <IDENTIFIER> >
+	| < METHODDECL: "public" <TYPE> <IDENTIFIER> "(" <FORMALLIST> ")" "{" (<VARDECL>)* (<STATEMENT>)* "return" <EXP> ";" "{" >
+	| < FORMALLIST: <TYPE> <IDENTIFIER> (<FORMALREST>)* >
+	| < FORMALREST: "," <TYPE> <IDENTIFIER> >
+	| < TYPE: ("int" "[" "]") | ("boolean") | ("int") | (<IDENTIFIER>) >	
+	| < STATEMENT: ("{" (<STATEMENT>)* "}") |
+			 ("if" "(" <EXP> ")" <STATEMENT> "else" <STATEMENT>) |
+		 	 ("while" "(" <EXP> ")" <STATEMENT>) | 
+		 	 ("System.out.println" "(" <EXP> ")" ";") | 
+		 	 (<IDENTIFIER> "=" <EXP> ";") | 
+		 	 (<IDENTIFIER> "[" <EXP> "]" "=" <EXP> ";") >	
+	| < EXP: (<EXP> <OP> <EXP>) | 
+			(<EXP> "[" <EXP> "]") | 
+			(<EXP> "." "length") | 
+			(<EXP> "." <IDENTIFIER> "(" <EXPLIST> ")") | 
+			(<INTEGER_LITERAL>) | 
+			("true") | 
+			("false") | 
+			(<IDENTIFIER>) | 
+			("this") | 
+			("new" "int" "[" <EXP> "]") |
+			("new" <IDENTIFIER> "(" ")") |
+			("!" <EXP>) |
+			("(" <EXP> ")") >
+	| < EXPLIST: <EXP> (<EXPREST>)* >
+	| < EXPREST: "," <EXP> >	
+	| < IDENTIFIER: ["a"-"z","A"-"Z"]  (["a"-"z","A"-"Z","0"-"9"]|<DIGIT>)* >
+	| < #DIGIT: ["0"-"9"] >
+	| < INTEGER_LITERAL: (<DIGIT>)+ >
+	| < OP: ("&&" | "<" | "+" | "-" | "*") >
+}
+
+// The following is a simple grammar that will allow you
+// to test the generated lexer.
+
+
+void Goal() :
+{}
+{
+  ( MiniJavaToken() )*
+  <EOF>
+}
+
+void MiniJavaToken():
+{}
+{
+  "class"  |  <IDENTIFIER> | "{" | "public" | "static" | "void" |
+  "main" | "(" | "String"  | "[" | "]" | ")" | "}" | "extends" | ";"
+  | "return" | "," | "int" | "boolean" | "=" | "if" | "else" | "while"
+  | "System.out.println" | "&&" | "<" | "+" | "-" | "*" | "." |
+  "length" | <INTEGER_LITERAL> | "true" | "false" | "this" | "new" |
+  "!"
+}
+
+

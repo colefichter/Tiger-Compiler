@@ -1,0 +1,154 @@
+options {
+  JAVA_UNICODE_ESCAPE = true;
+}
+
+PARSER_BEGIN(MiniJavaParser)
+  public class MiniJavaParser {}
+PARSER_END(MiniJavaParser)
+
+
+// Insert a specification of a lexical analysis here.
+SKIP :
+{
+" "
+| "\t"
+| "\n"
+| "\r"
+}
+
+TOKEN :
+{
+< ASSIGN: "=" >
+| < GT: ">" >
+| < LT: "<" >
+| < NOT: "!" >
+| < EQ: "==" >
+| < OR: "||" >
+| < AND: "&&" >
+| < PLUS: "+" >
+| < MINUS: "-" >
+| < STAR: "*" >
+| < SLASH: "/" >
+}
+
+TOKEN :
+{
+< LPAREN: "(" >
+| < RPAREN: ")" >
+| < LBRACE: "{" >
+| < RBRACE: "}" >
+| < LBRACKET: "[" >
+| < RBRACKET: "]" >
+| < SEMICOLON: ";" >
+| < COMMA: "," >
+| < DOT: "." >
+}
+ 
+TOKEN :
+{
+< INTEGER_LITERAL:  ( ["1"-"9"] (["0"-"9"])* | "0" ) >
+| < BOOLEAN_LITERAL: ("true"|"false")>
+}
+
+TOKEN :
+{
+  < INT: "int">
+//| < INT_ARRAY: <INT><LBRACKET><RBRACKET> >
+| < BOOLEAN: "boolean">
+| < CLASS: "class">
+| < THIS: "this">
+| < EXTENDS: "extends">
+| < PUBLIC: "public">
+| < STATIC: "static">
+| < VOID: "void">
+| < RETURN: "return">
+| < MAIN: "main">
+| < IF: "if">
+| < ELSE: "else">
+| < WHILE: "while">
+| < PRINT: "System.out.println">
+| < NEW: "new">
+| < STRING: "String">
+| < LENGTH: "length">
+}
+
+TOKEN :
+{
+  < ID: <LETTER> (<LETTER>|<DIGIT>)* >
+| < #LETTER: ["_","a"-"z","A"-"Z"] >
+| < #DIGIT: ["0"-"9"] >
+}
+
+SPECIAL_TOKEN :
+{
+<SINGLE_LINE_COMMENT: "//" (~["\n","\r"])* ("\n"|"\r"|"\r\n")>
+|<FORMAL_COMMENT: "/**" (~["*"])* "*" ("*" | (~["*","/"] (~["*"])* "*"))* "/">
+|<MULTI_LINE_COMMENT: "/*" (~["*"])* "*" ("*" | (~["*","/"] (~["*"])* "*"))* "/">
+}
+
+//END of lexical analysis
+
+//START of parser
+void Program() : {} { MainClass() ( ClassDecl() )* }
+
+void MainClass() : {} { <CLASS> <ID> <LBRACE> 
+	<PUBLIC> <STATIC> <VOID> <MAIN> <LPAREN> <STRING> <LBRACKET> <RBRACKET> <ID> <RPAREN>
+	<LBRACE> Stm() <RBRACE> 
+	<RBRACE> }
+void ClassDecl() : {} { <CLASS> <ID> (<EXTENDS> <ID>)? <LBRACE> (VariableDecl())* (MethodDecl())* <RBRACE> }
+
+void VariableDecl() : {} { Type() <ID> <SEMICOLON> }
+
+void MethodDecl() : {} { <PUBLIC> Type() <ID> <LPAREN> FormalList() <RPAREN> 
+	<LBRACE> (LOOKAHEAD(2) VariableDecl())* (Stm())* <RETURN> Exp() <SEMICOLON> }
+
+void FormalList() : {} { Type() <ID> (FormalRest())* }
+void FormalRest() : {} { <COMMA> Type() <ID>  } 
+
+void TypeInt() : {} { <INT> }
+void TypeIntArray() : {} { <INT> <LBRACKET> <RBRACKET> }
+void TypeBool() : {} { <BOOLEAN> }
+void TypeId() : {} { <ID> }
+void Type() : {} { LOOKAHEAD(2) TypeInt() | TypeIntArray() | TypeBool() | TypeId() }
+
+void Stm() : {} { CompoundStm() | LOOKAHEAD(2) AssignStm() | ArrayAssignStm() | PrintStm() | WhileStm() | IfElseStm() }
+void CompoundStm() : {} { <LBRACE> ( Stm() )* <RBRACE> } 
+void AssignStm() : {} { <ID> <ASSIGN> Exp() <SEMICOLON> }
+void ArrayAssignStm() : {} { <ID> <LBRACKET> Exp() <RBRACKET> <ASSIGN> Exp() <SEMICOLON> }
+void PrintStm() : {} { <PRINT> <LPAREN> Exp() <RPAREN> <SEMICOLON> }
+void WhileStm() : {} { <WHILE> <LPAREN> Exp() <RPAREN> Stm() }
+void IfElseStm() : {} { <IF> <LPAREN> Exp() <RPAREN> Stm() <ELSE> Stm() }
+
+//The Exp productions are chock-full of left-recursion, making things a little complicated...
+void Exp() : {} { And() }
+void And() : {} { LessThan() ( LOOKAHEAD(2) <AND> LessThan() )* }
+void LessThan() : {} { AdditiveExp() ( <LT> AdditiveExp() )+ }
+void AdditiveExp() : {} { Times() ( LOOKAHEAD(2) (<PLUS> | <MINUS>) Times() )* }
+void Times() : {} { PrefixExp() ( LOOKAHEAD(2) <STAR> PrefixExp() )* }
+void PrefixExp() : {} { Not() | PostfixExp() }
+void Not() : {} { (<NOT>)+ PostfixExp() }
+void PostfixExp() : {} { PrimaryExp() ( <LBRACKET> Exp() <RBRACKET> 
+	| <DOT> ( <ID> <LPAREN> ( Exp() )+ <RPAREN> | <LENGTH> ) )*  }
+void PrimaryExp() : {} { IntExp() | BoolExp() | IdExp() | ThisExp() | ParenExp() | LOOKAHEAD(2) IntArrayExp() | NewIdExp() }
+
+void IntExp() : {} { <INTEGER_LITERAL> }
+void BoolExp() : {} { <BOOLEAN_LITERAL> }
+void IdExp() : {} { <ID> }
+void ThisExp() : {} { <THIS> }
+void IntArrayExp() : {} { <NEW> <INT> <LBRACKET> Exp() <RBRACKET> }
+void NewIdExp() : {} { <NEW> <ID> <LPAREN> <RPAREN> }
+void ParenExp() : {} { <LPAREN> Exp() <RPAREN> }
+
+//END of parser
+
+// The following is a simple grammar that will allow you
+// to test the generated parser.
+void Goal() :
+{}
+{
+	Program()
+	<EOF>
+}
+
+
+

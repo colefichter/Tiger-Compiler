@@ -1,0 +1,63 @@
+Program(
+MainClass(Identifier(BubbleSort), Identifier(a), Print(Call(NewObject(BBS), Identifier(Start), (IntegerLiteral(10)))))
+ClassDeclList(
+ClassDeclSimple(Identifier(BBS), (VarDecl(IntArrayType(), Identifier(number)), VarDecl(IntegerType(), Identifier(size))),
+(
+MethodDecl(IntegerType(), Identifier(Start), (Formal(IntegerType(), Identifier(sz))), (
+VarDecl(IntegerType(), Identifier(aux01))), (
+Assign(Identifier(aux01), Call(This(), Identifier(Init), (IdentifierExp(sz)))), 
+Assign(Identifier(aux01), Call(This(), Identifier(Print), ())), 
+Print(IntegerLiteral(99999)), 
+Assign(Identifier(aux01), Call(This(), Identifier(Sort), ())), 
+Assign(Identifier(aux01), Call(This(), Identifier(Print), ()))), 
+IntegerLiteral(0))
+, 
+MethodDecl(IntegerType(), Identifier(Sort), (), (
+VarDecl(IntegerType(), Identifier(nt)), VarDecl(IntegerType(), Identifier(i)), VarDecl(IntegerType(), Identifier(aux02)), VarDecl(IntegerType(), Identifier(aux04)), VarDecl(IntegerType(), Identifier(aux05)), VarDecl(IntegerType(), Identifier(aux06)), VarDecl(IntegerType(), Identifier(aux07)), VarDecl(IntegerType(), Identifier(j)), VarDecl(IntegerType(), Identifier(t))), (
+Assign(Identifier(i), Minus(IdentifierExp(size), IntegerLiteral(1))), 
+Assign(Identifier(aux02), Minus(IntegerLiteral(0), IntegerLiteral(1))), 
+While(LessThan(IdentifierExp(aux02), IdentifierExp(i)),
+Block((
+Assign(Identifier(j), IntegerLiteral(1)),
+While(LessThan(IdentifierExp(j), Plus(IdentifierExp(i), IntegerLiteral(1))),
+Block((
+Assign(Identifier(aux07), Minus(IdentifierExp(j), IntegerLiteral(1))),
+Assign(Identifier(aux04), ArrayLookup(IdentifierExp(number), IdentifierExp(aux07))),
+Assign(Identifier(aux05), ArrayLookup(IdentifierExp(number), IdentifierExp(j))),
+If(LessThan(IdentifierExp(aux05), IdentifierExp(aux04)),
+Block((
+Assign(Identifier(aux06), Minus(IdentifierExp(j), IntegerLiteral(1))),
+Assign(Identifier(t), ArrayLookup(IdentifierExp(number), IdentifierExp(aux06))),
+ArrayAssign(Identifier(number), IdentifierExp(aux06), ArrayLookup(IdentifierExp(number), IdentifierExp(j))),
+ArrayAssign(Identifier(number), IdentifierExp(j), IdentifierExp(t)))),
+Assign(Identifier(nt), IntegerLiteral(0))),
+Assign(Identifier(j), Plus(IdentifierExp(j), IntegerLiteral(1)))))),
+Assign(Identifier(i), Minus(IdentifierExp(i), IntegerLiteral(1))))))), 
+IntegerLiteral(0))
+, 
+MethodDecl(IntegerType(), Identifier(Print), (), (
+VarDecl(IntegerType(), Identifier(j))), (
+Assign(Identifier(j), IntegerLiteral(0)), 
+While(LessThan(IdentifierExp(j), IdentifierExp(size)),
+Block((
+Print(ArrayLookup(IdentifierExp(number), IdentifierExp(j))),
+Assign(Identifier(j), Plus(IdentifierExp(j), IntegerLiteral(1))))))), 
+IntegerLiteral(0))
+, 
+MethodDecl(IntegerType(), Identifier(Init), (Formal(IntegerType(), Identifier(sz))), (
+), (
+Assign(Identifier(size), IdentifierExp(sz)), 
+Assign(Identifier(number), NewArray(IdentifierExp(sz))), 
+ArrayAssign(Identifier(number), IntegerLiteral(0), IntegerLiteral(20)), 
+ArrayAssign(Identifier(number), IntegerLiteral(1), IntegerLiteral(7)), 
+ArrayAssign(Identifier(number), IntegerLiteral(2), IntegerLiteral(12)), 
+ArrayAssign(Identifier(number), IntegerLiteral(3), IntegerLiteral(18)), 
+ArrayAssign(Identifier(number), IntegerLiteral(4), IntegerLiteral(2)), 
+ArrayAssign(Identifier(number), IntegerLiteral(5), IntegerLiteral(11)), 
+ArrayAssign(Identifier(number), IntegerLiteral(6), IntegerLiteral(6)), 
+ArrayAssign(Identifier(number), IntegerLiteral(7), IntegerLiteral(9)), 
+ArrayAssign(Identifier(number), IntegerLiteral(8), IntegerLiteral(19)), 
+ArrayAssign(Identifier(number), IntegerLiteral(9), IntegerLiteral(5))), 
+IntegerLiteral(0))
+))
+))

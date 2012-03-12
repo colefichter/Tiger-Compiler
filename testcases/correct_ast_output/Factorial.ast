@@ -1,0 +1,13 @@
+Program(
+MainClass(Identifier(Factorial), Identifier(a), Print(Call(NewObject(Fac), Identifier(ComputeFac), (IntegerLiteral(10)))))
+ClassDeclList(
+ClassDeclSimple(Identifier(Fac), (),
+(
+MethodDecl(IntegerType(), Identifier(ComputeFac), (Formal(IntegerType(), Identifier(num))), (
+VarDecl(IntegerType(), Identifier(num_aux))), (
+If(LessThan(IdentifierExp(num), IntegerLiteral(1)),
+Assign(Identifier(num_aux), IntegerLiteral(1)),
+Assign(Identifier(num_aux), Times(IdentifierExp(num), Call(This(), Identifier(ComputeFac), (Minus(IdentifierExp(num), IntegerLiteral(1)))))))), 
+IdentifierExp(num_aux))
+))
+))

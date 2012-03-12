@@ -1,0 +1,34 @@
+options {
+  DEBUG_PARSER = true; // Set to false to turn off token printing
+}
+
+PARSER_BEGIN(MyParser)
+	class MyParser 
+	{
+		public static void main(String args[]) throws ParseException {
+			new MyParser(System.in);
+    			Start();
+			System.out.println("Parse successful");
+  		}
+	}
+PARSER_END(MyParser)
+
+TOKEN : {
+	  < IF: "if" >
+	| < #DIGIT: ["0"-"9"] >
+	| < ID: ["a"-"z"] ( ["a"-"z"] | <DIGIT>)* >
+	| < NUM: (<DIGIT>)+ >
+	| < REAL: ((<DIGIT>)+ "." (<DIGIT>)*) | ( (<DIGIT>)* "." (<DIGIT>)+) >
+}
+
+SKIP: {
+	  < "--" (~["\n", "\r"])* ("\n" | "\r" | "\r\n") >
+	| " "
+	| "\t"
+	| "\n"
+	| "\r"
+}
+
+void Start() :
+{}
+{	(<IF> | <ID> | <NUM> | <REAL>)*}

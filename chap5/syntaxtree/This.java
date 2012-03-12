@@ -1,0 +1,1 @@
+package syntaxtree;import visitor.Visitor;import visitor.TypeVisitor;public class This extends Exp {	public This(Position p) {		position=p;	}  public void accept(Visitor v) {    v.visit(this);  }  public Type accept(TypeVisitor v) {    return v.visit(this);  }}
