@@ -1,0 +1,1 @@
+package syntaxtree;import visitor.Visitor;import visitor.TypeVisitor;public class While extends Statement {  public Exp e;  public Statement s;  public While(Exp ae, Statement as, Position p) {    e=ae; s=as; position=p;  }  public void accept(Visitor v) {    v.visit(this);  }  public Type accept(TypeVisitor v) {    return v.visit(this);  }}

@@ -1,0 +1,1 @@
+package syntaxtree;import visitor.Visitor;import visitor.TypeVisitor;public class SeqAssign extends Statement {  public Identifier i;  public Exp e;  public SeqAssign(Identifier ai, Exp ae, Position p) {    i=ai; e=ae; position=p;  }  public void accept(Visitor v) {    v.visit(this);  }  public Type accept(TypeVisitor v) {    return v.visit(this);  }}
