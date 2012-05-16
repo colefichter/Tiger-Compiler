@@ -15,13 +15,13 @@
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="99" y="22"/>
 <coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="130" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="61" y="22"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -32,13 +32,43 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TypeCheckVisitor.java" partName="TypeCheckVisitor.java" path="C:/tiger2/chap6/visitor/TypeCheckVisitor.java" title="TypeCheckVisitor.java" tooltip="chap6/visitor/TypeCheckVisitor.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/chap6/visitor/TypeCheckVisitor.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4547" selectionTopPixel="3655"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Iterator.java" partName="Iterator.java" title="Iterator.java" tooltip="C:\tiger2\testcases\Iterator.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/tiger2/testcases/Iterator.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="314" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.ui.DefaultTextEditor" name="MiniJavaParser.jj" partName="MiniJavaParser.jj" path="C:/tiger2/lambda/MiniJavaParser.jj" title="MiniJavaParser.jj" tooltip="lambda/MiniJavaParser.jj" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/lambda/MiniJavaParser.jj"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="136" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Main.java" partName="Main.java" path="C:/tiger2/lambda/Main.java" title="Main.java" tooltip="lambda/Main.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/lambda/Main.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BinaryTree.java" partName="BinaryTree.java" title="BinaryTree.java" tooltip="C:\tiger2\testcases\BinaryTree.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/tiger2/testcases/BinaryTree.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="5" selectionOffset="236" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ArrayLength.java" partName="ArrayLength.java" path="C:/tiger2/lambda/syntaxtree/ArrayLength.java" title="ArrayLength.java" tooltip="lambda/syntaxtree/ArrayLength.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/lambda/syntaxtree/ArrayLength.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="13" selectionOffset="114" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ArrayIterate.java" partName="ArrayIterate.java" path="C:/tiger2/lambda/syntaxtree/ArrayIterate.java" title="ArrayIterate.java" tooltip="lambda/syntaxtree/ArrayIterate.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/lambda/syntaxtree/ArrayIterate.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="362" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PrettyPrintVisitor.java" partName="PrettyPrintVisitor.java" path="C:/tiger2/lambda/visitor/PrettyPrintVisitor.java" title="PrettyPrintVisitor.java" tooltip="lambda/visitor/PrettyPrintVisitor.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/lambda/visitor/PrettyPrintVisitor.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7337" selectionTopPixel="5083"/>
 </editor>
 </editors>
 <views>
@@ -50,6 +80,9 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Errors"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="64" org.eclipse.ui.ide.markerType="94" org.eclipse.ui.ide.pathField="124" org.eclipse.ui.ide.resourceField="94" org.eclipse.ui.ide.severityAndDescriptionField="514"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -106,7 +139,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.ui.DefaultTextEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -218,7 +251,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@5985910" ratio="0.61787075" ratioLeft="650" ratioRight="402" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@5985910" ratio="0.621673" ratioLeft="654" ratioRight="398" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
@@ -277,42 +310,58 @@
 <view id="org.eclipse.debug.ui.ExpressionView"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <fastViewBars/>
-<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.74980205" ratioLeft="947" ratioRight="316" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.74980205" ratioLeft="947" ratioRight="316" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7497594" ratioLeft="779" ratioRight="260" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7497594" ratioLeft="779" ratioRight="260" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.debug.ui.DisplayView" label="LabelNotFound"/>
 <page content="org.eclipse.search.SearchResultView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.5006468" ratioLeft="387" ratioRight="386" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
-<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.7247924" ratioLeft="1222" ratioRight="464" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.7247924" ratioLeft="1222" ratioRight="464" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.3931624" ratioLeft="506" ratioRight="781" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.3931624" ratioLeft="506" ratioRight="781" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 </presentation>
@@ -325,173 +374,167 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap5/Main.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap5/visitor/SyntaxColouringVisitor.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap5/visitor/PrettyPrintVisitor.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap5/Main.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/syntaxtree/And.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/syntaxtree/If.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/syntaxtree/LessThan.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/chap6/.project"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap5/visitor/PrettyPrintVisitor.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/syntaxtree/And.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/Main.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/visitor/BuildSymbolTableVisitor.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/symbol/Symbol.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/symbol/SymbolTable.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/visitor/TypeVisitor.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/visitor/TypeCheckVisitor.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/symbol/ClassSymbol.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/visitor/PrettyPrintVisitor.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/syntaxtree/MainClass.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/C:/tiger2/testcases/BinarySearch.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/C:/tiger2/testcases/Iterator.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/lambda/visitor/BuildSymbolTableVisitor.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/lambda/MiniJavaParser.jj"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/lambda/syntaxtree/IdentifierExp.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/lambda/Main.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/C:/tiger2/testcases/DynamicMethodLookup.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/C:/tiger2/testcases/BinaryTree.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/lambda/syntaxtree/ArrayLength.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/lambda/syntaxtree/ArrayIterate.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/lambda/visitor/PrettyPrintVisitor.java"/>
 </editors>
-<item historyLabel="Main.java" index="0">
-<position/>
+<item historyLabel="BinarySearch.java" index="0">
+<position info="not_deleted" x="249" y="14"/>
 </item>
-<item historyLabel="Main.java" index="0">
-<position info="not_deleted" x="1654" y="0"/>
+<item historyLabel="Iterator.java" index="1">
+<position info="not_deleted" x="103" y="0"/>
 </item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="53" y="22"/>
+<item historyLabel="MiniJavaParser.jj" index="3">
+<position info="not_deleted" x="171" y="0"/>
 </item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="118" y="0"/>
+<item historyLabel="Iterator.java" index="1">
+<position info="not_deleted" x="19" y="0"/>
 </item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="588" y="0"/>
+<item historyLabel="IdentifierExp.java" index="4">
+<position info="not_deleted" x="86" y="13"/>
 </item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="1068" y="0"/>
+<item historyLabel="BuildSymbolTableVisitor.java" index="2">
+<position info="not_deleted" x="2216" y="0"/>
 </item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="1073" y="3"/>
+<item historyLabel="Iterator.java" index="1">
+<position info="not_deleted" x="19" y="0"/>
 </item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="943" y="0"/>
-</item>
-<item historyLabel="Main.java" index="0">
-<position info="not_deleted" x="1131" y="0"/>
-</item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="943" y="0"/>
-</item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="1121" y="0"/>
-</item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="1281" y="0"/>
-</item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="661" y="0"/>
-</item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="689" y="0"/>
-</item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="1393" y="0"/>
-</item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="1522" y="0"/>
-</item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="1549" y="0"/>
-</item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="1073" y="0"/>
-</item>
-<item historyLabel="PrettyPrintVisitor.java" index="2">
-<position info="not_deleted" x="426" y="0"/>
-</item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="1073" y="0"/>
-</item>
-<item historyLabel="SyntaxColouringVisitor.java" index="1">
-<position info="not_deleted" x="1511" y="0"/>
-</item>
-<item historyLabel="Main.java" index="3">
+<item historyLabel="Main.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="And.java" index="4">
+<item historyLabel="DynamicMethodLookup.java" index="6">
+<position info="not_deleted" x="298" y="0"/>
+</item>
+<item historyLabel="Main.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="If.java" index="5">
+<item historyLabel="BinaryTree.java" index="7">
+<position info="not_deleted" x="107" y="0"/>
+</item>
+<item historyLabel="Iterator.java" index="1">
+<position info="not_deleted" x="19" y="0"/>
+</item>
+<item historyLabel="Iterator.java" index="1">
+<position info="not_deleted" x="169" y="0"/>
+</item>
+<item historyLabel="Iterator.java" index="1">
+<position info="not_deleted" x="94" y="0"/>
+</item>
+<item historyLabel="Iterator.java" index="1">
+<position info="not_deleted" x="103" y="0"/>
+</item>
+<item historyLabel="BinaryTree.java" index="7">
+<position info="not_deleted" x="236" y="5"/>
+</item>
+<item historyLabel="Iterator.java" index="1">
+<position info="not_deleted" x="103" y="0"/>
+</item>
+<item historyLabel="Iterator.java" index="1">
+<position info="not_deleted" x="350" y="0"/>
+</item>
+<item historyLabel="Main.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="LessThan.java" index="6">
-<position info="not_deleted" x="339" y="0"/>
+<item historyLabel="Iterator.java" index="1">
+<position info="not_deleted" x="350" y="0"/>
 </item>
-<item historyLabel=".project" index="7"/>
-<item historyLabel="LessThan.java" index="6">
-<position info="not_deleted" x="339" y="0"/>
+<item historyLabel="BinaryTree.java" index="7">
+<position info="not_deleted" x="236" y="5"/>
 </item>
-<item historyLabel="PrettyPrintVisitor.java" index="8">
+<item historyLabel="Iterator.java" index="1">
+<position info="not_deleted" x="374" y="0"/>
+</item>
+<item historyLabel="Main.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="LessThan.java" index="6">
-<position info="not_deleted" x="275" y="0"/>
+<item historyLabel="MiniJavaParser.jj" index="3">
+<position info="not_deleted" x="1295" y="0"/>
 </item>
-<item historyLabel="And.java" index="9">
+<item historyLabel="Main.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Main.java" index="10">
-<position info="not_deleted" x="2241" y="23"/>
+<item historyLabel="Iterator.java" index="1">
+<position info="not_deleted" x="374" y="0"/>
 </item>
-<item historyLabel="BuildSymbolTableVisitor.java" index="11">
-<position info="not_deleted" x="440" y="0"/>
+<item historyLabel="MiniJavaParser.jj" index="3">
+<position info="not_deleted" x="5282" y="0"/>
 </item>
-<item historyLabel="Symbol.java" index="12">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="ArrayLength.java" index="8">
+<position info="not_deleted" x="114" y="13"/>
 </item>
-<item historyLabel="SymbolTable.java" index="13">
-<position info="not_deleted" x="806" y="0"/>
+<item historyLabel="ArrayIterate.java" index="9">
+<position info="not_deleted" x="209" y="0"/>
 </item>
-<item historyLabel="Main.java" index="10">
-<position info="not_deleted" x="2241" y="23"/>
+<item historyLabel="PrettyPrintVisitor.java" index="10">
+<position info="not_deleted" x="7337" y="0"/>
 </item>
-<item historyLabel="Main.java" index="10">
-<position info="not_deleted" x="2861" y="0"/>
+<item historyLabel="Iterator.java" index="1">
+<position info="not_deleted" x="374" y="0"/>
 </item>
-<item historyLabel="Main.java" index="10">
-<position info="not_deleted" x="2889" y="0"/>
+<item historyLabel="MiniJavaParser.jj" index="3">
+<position info="not_deleted" x="5433" y="0"/>
 </item>
-<item historyLabel="Main.java" index="10">
-<position info="not_deleted" x="2704" y="0"/>
+<item historyLabel="ArrayIterate.java" index="9">
+<position info="not_deleted" x="209" y="0"/>
 </item>
-<item historyLabel="TypeVisitor.java" index="14">
-<position info="not_deleted" x="550" y="0"/>
+<item historyLabel="ArrayLength.java" index="8">
+<position info="not_deleted" x="114" y="13"/>
 </item>
-<item historyLabel="TypeCheckVisitor.java" index="15">
-<position info="not_deleted" x="2824" y="0"/>
+<item historyLabel="ArrayIterate.java" index="9">
+<position info="not_deleted" x="209" y="0"/>
 </item>
-<item historyLabel="SymbolTable.java" index="13">
-<position info="not_deleted" x="806" y="0"/>
+<item historyLabel="ArrayLength.java" index="8">
+<position info="not_deleted" x="114" y="13"/>
 </item>
-<item historyLabel="ClassSymbol.java" index="16">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="ArrayIterate.java" index="9">
+<position info="not_deleted" x="209" y="0"/>
 </item>
-<item historyLabel="Symbol.java" index="12">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="ArrayLength.java" index="8">
+<position info="not_deleted" x="114" y="13"/>
 </item>
-<item historyLabel="SymbolTable.java" index="13">
-<position info="not_deleted" x="806" y="0"/>
+<item historyLabel="ArrayIterate.java" index="9">
+<position info="not_deleted" x="209" y="0"/>
 </item>
-<item historyLabel="PrettyPrintVisitor.java" index="17">
-<position info="not_deleted" x="385" y="0"/>
+<item historyLabel="ArrayLength.java" index="8">
+<position info="not_deleted" x="114" y="13"/>
 </item>
-<item historyLabel="MainClass.java" index="18">
-<position info="not_deleted" x="124" y="0"/>
+<item historyLabel="ArrayIterate.java" index="9">
+<position info="not_deleted" x="209" y="0"/>
 </item>
-<item historyLabel="PrettyPrintVisitor.java" index="17">
-<position info="not_deleted" x="2074" y="105"/>
+<item historyLabel="ArrayLength.java" index="8">
+<position info="not_deleted" x="114" y="13"/>
 </item>
-<item historyLabel="BuildSymbolTableVisitor.java" index="11">
-<position info="not_deleted" x="440" y="0"/>
+<item historyLabel="ArrayIterate.java" index="9">
+<position info="not_deleted" x="209" y="0"/>
 </item>
-<item historyLabel="Main.java" index="10">
-<position info="not_deleted" x="2792" y="0"/>
+<item historyLabel="ArrayLength.java" index="8">
+<position info="not_deleted" x="114" y="13"/>
 </item>
-<item active="true" historyLabel="TypeCheckVisitor.java" index="15">
-<position info="not_deleted" x="2824" y="0"/>
+<item historyLabel="ArrayIterate.java" index="9">
+<position info="not_deleted" x="147" y="0"/>
+</item>
+<item historyLabel="MiniJavaParser.jj" index="3">
+<position info="not_deleted" x="5986" y="0"/>
+</item>
+<item historyLabel="Iterator.java" index="1">
+<position info="not_deleted" x="314" y="0"/>
+</item>
+<item historyLabel="MiniJavaParser.jj" index="3">
+<position info="not_deleted" x="8680" y="0"/>
+</item>
+<item historyLabel="ArrayIterate.java" index="9">
+<position info="not_deleted" x="362" y="0"/>
+</item>
+<item active="true" historyLabel="MiniJavaParser.jj" index="3">
+<position info="not_deleted" x="8680" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -513,50 +556,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainClass.java" tooltip="chap6/syntaxtree/MainClass.java">
-<persistable path="/chap6/syntaxtree/MainClass.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PrettyPrintVisitor.java" tooltip="chap6/visitor/PrettyPrintVisitor.java">
-<persistable path="/chap6/visitor/PrettyPrintVisitor.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ClassSymbol.java" tooltip="chap6/symbol/ClassSymbol.java">
-<persistable path="/chap6/symbol/ClassSymbol.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TypeCheckVisitor.java" tooltip="chap6/visitor/TypeCheckVisitor.java">
-<persistable path="/chap6/visitor/TypeCheckVisitor.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TypeVisitor.java" tooltip="chap6/visitor/TypeVisitor.java">
-<persistable path="/chap6/visitor/TypeVisitor.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="MiniJavaParser.jj" tooltip="chap6/MiniJavaParser.jj">
 <persistable path="/chap6/MiniJavaParser.jj"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SymbolTable.java" tooltip="chap6/symbol/SymbolTable.java">
-<persistable path="/chap6/symbol/SymbolTable.java"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="MiniJavaParser.jj" tooltip="C:\tiger2\chap6\MiniJavaParser.jj">
+<persistable uri="file:/C:/tiger2/chap6/MiniJavaParser.jj"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Symbol.java" tooltip="chap6/symbol/Symbol.java">
-<persistable path="/chap6/symbol/Symbol.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PrettyPrintVisitor.java" tooltip="lambda/visitor/PrettyPrintVisitor.java">
+<persistable path="/lambda/visitor/PrettyPrintVisitor.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BuildSymbolTableVisitor.java" tooltip="chap6/visitor/BuildSymbolTableVisitor.java">
-<persistable path="/chap6/visitor/BuildSymbolTableVisitor.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ArrayIterate.java" tooltip="lambda/syntaxtree/ArrayIterate.java">
+<persistable path="/lambda/syntaxtree/ArrayIterate.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Main.java" tooltip="chap6/Main.java">
-<persistable path="/chap6/Main.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ArrayLength.java" tooltip="lambda/syntaxtree/ArrayLength.java">
+<persistable path="/lambda/syntaxtree/ArrayLength.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name=".project" tooltip="chap6/.project">
-<persistable path="/chap6/.project"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BinaryTree.java" tooltip="C:\tiger2\testcases\BinaryTree.java">
+<persistable uri="file:/C:/tiger2/testcases/BinaryTree.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LessThan.java" tooltip="chap6/syntaxtree/LessThan.java">
-<persistable path="/chap6/syntaxtree/LessThan.java"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DynamicMethodLookup.java" tooltip="C:\tiger2\testcases\DynamicMethodLookup.java">
+<persistable uri="file:/C:/tiger2/testcases/DynamicMethodLookup.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="If.java" tooltip="chap6/syntaxtree/If.java">
-<persistable path="/chap6/syntaxtree/If.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Main.java" tooltip="lambda/Main.java">
+<persistable path="/lambda/Main.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="And.java" tooltip="chap6/syntaxtree/And.java">
-<persistable path="/chap6/syntaxtree/And.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BuildSymbolTableVisitor.java" tooltip="lambda/visitor/BuildSymbolTableVisitor.java">
+<persistable path="/lambda/visitor/BuildSymbolTableVisitor.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PrettyPrintVisitor.java" tooltip="chap5/visitor/PrettyPrintVisitor.java">
-<persistable path="/chap5/visitor/PrettyPrintVisitor.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IdentifierExp.java" tooltip="lambda/syntaxtree/IdentifierExp.java">
+<persistable path="/lambda/syntaxtree/IdentifierExp.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Identifier.java" tooltip="lambda/syntaxtree/Identifier.java">
+<persistable path="/lambda/syntaxtree/Identifier.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="This.java" tooltip="lambda/syntaxtree/This.java">
+<persistable path="/lambda/syntaxtree/This.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="MiniJavaParser.jj" tooltip="lambda/MiniJavaParser.jj">
+<persistable path="/lambda/MiniJavaParser.jj"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TypeCheckVisitor.java" tooltip="lambda/visitor/TypeCheckVisitor.java">
+<persistable path="/lambda/visitor/TypeCheckVisitor.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="blah.java" tooltip="C:\tiger2\testcases\blah.java">
+<persistable uri="file:/C:/tiger2/testcases/blah.java"/>
 </file>
 </mruList>
 </workbench>

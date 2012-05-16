@@ -23,4 +23,5 @@
 <fullyQualifiedTypeName name="frame.Access"/>
 <fullyQualifiedTypeName name="frame.AccessList"/>
 <fullyQualifiedTypeName name="syntaxtree.IdentifierType"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

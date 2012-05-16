@@ -1,3 +1,7 @@
+/* How to generate the parser:
+	> C:\java\javacc-4.2\bin\javacc.bat "MiniJavaParser.jj"
+*/
+
 options {
   JAVA_UNICODE_ESCAPE = true;
 }

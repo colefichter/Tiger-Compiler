@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="BasicNewProjectResourceWizard">
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.ui.wizards.new.project" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.jdt.ui.java"/>
+		</list>
+	</section>
 	<section name="CleanDialogSettings">
 		<item value="500" key="DIALOG_WIDTH"/>
 		<item value="349" key="DIALOG_Y_ORIGIN"/>
-		<item value="377" key="DIALOG_HEIGHT"/>
 		<item value="-1210" key="DIALOG_X_ORIGIN"/>
+		<item value="377" key="DIALOG_HEIGHT"/>
 		<item value="false" key="TOGGLE_SELECTED"/>
 	</section>
 </section>

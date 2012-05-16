@@ -1,0 +1,1 @@
+package syntaxtree;import visitor.Visitor;import visitor.TypeVisitor;public class ArrayIterate extends Exp {  public Identifier i;  public Block b;  public ArrayIterate(Identifier ai, Block ab, Position p) {    i=ai; b=ab;position=p;  }  public void accept(Visitor v) {    v.visit(this);  }  public Type accept(TypeVisitor v) {    return v.visit(this);  }}
