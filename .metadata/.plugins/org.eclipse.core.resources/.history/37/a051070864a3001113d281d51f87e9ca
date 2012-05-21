@@ -1,0 +1,13 @@
+package visitor;
+
+import symbol.SymbolTable;
+
+public class MIPSTranslator extends DepthFirstVisitor {
+	public SymbolTable symbolTable;
+	
+	public MIPSTranslator(SymbolTable st) {
+		symbolTable = st;
+	}
+	
+	
+}

@@ -3,6 +3,7 @@ package symbol;
 public abstract class Symbol {
 	String type;
 	String id;
+	public Object value;
 	
 	public String getId() {
 		return id;

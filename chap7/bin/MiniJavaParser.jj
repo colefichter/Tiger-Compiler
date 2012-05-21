@@ -1,0 +1,333 @@
+options {
+  JAVA_UNICODE_ESCAPE = true;
+}
+
+PARSER_BEGIN(MiniJavaParser)
+import syntaxtree.*;
+
+	public class MiniJavaParser {
+		public static Position getPosition() {
+			return new Position(token.beginLine, token.beginColumn);
+		}
+	}
+/*
+public class MiniJavaParser {
+  public static void main(String args[]) throws ParseException {
+    MiniJavaLexer parser = new MiniJavaLexer(System.in);
+    parser.Goal();
+  }
+}
+*/
+PARSER_END(MiniJavaParser)
+
+/*START OF LEXER */
+
+SKIP : /* WHITE SPACE */
+{
+  " "
+| "\t"
+| "\n"
+| "\r"
+| "\f"
+}
+
+SPECIAL_TOKEN : /* COMMENTS */
+{
+  <SINGLE_LINE_COMMENT: "//" (~["\n","\r"])* ("\n"|"\r"|"\r\n")>
+| <FORMAL_COMMENT: "/**" (~["*"])* "*" ("*" | (~["*","/"] (~["*"])* "*"))* "/">
+| <MULTI_LINE_COMMENT: "/*" (~["*"])* "*" ("*" | (~["*","/"] (~["*"])* "*"))* "/">
+}
+
+TOKEN : 
+{
+  < LPAREN: "(" >
+| < RPAREN: ")" >
+| < LBRACKET: "[" >
+| < RBRACKET: "]" >
+| < LBRACE: "{" >
+| < RBRACE: "}" >
+| < SEMICOLON: ";" >
+| < COMMA: "," >
+| < DOT: "." >
+| < ASSIGN: "=" >
+| < LT: "<" >
+| < PLUS: "+" >
+| < MINUS: "-" >
+| < AND : "&&" >   
+| < NOT : "!" >   
+| < BOOLEAN: "boolean" >   
+| < CLASS: "class" >
+| < INTERFACE: "interface" >
+| < ELSE: "else" >
+| < EXTENDS: "extends" >
+| < FALSE: "false" >
+| < IF: "if" >
+| < WHILE: "while" >
+| < INTEGER: "int" >   
+| < LENGTH: "length" >
+| < MAIN: "main" >
+| < NEW: "new" >
+| < PUBLIC: "public" >
+| < RETURN: "return" >
+| < STAR : "*" >
+| < STATIC: "static" >
+| < STRING: "String" >
+| < THIS: "this" >
+| < TRUE: "true" >
+| < PRINT: "System.out.println" >
+| < VOID: "void" >         
+}
+
+TOKEN : /* LITERALS */
+{
+  < INTEGER_LITERAL: ( ["1"-"9"] (["0"-"9"])* | "0" ) >
+}
+
+TOKEN : /* IDENTIFIERS */
+{
+  < IDENTIFIER: <LETTER> (<LETTER>|<DIGIT>)* >
+|
+  < #LETTER: ["_","a"-"z","A"-"Z"] >
+|
+  < #DIGIT: ["0"-"9"] >
+}
+
+/*END OF LEXER*/
+/************************************
+ * The MiniJava Grammar Starts Here *
+ ************************************/
+ /*START OF PARSER*/
+ 
+ Program Program() : 
+ 	{MainClass m; ClassDeclList cl;} 
+	{ m=MainClass() cl=ClassDeclList() { return new Program(m, cl); } 
+	}
+ 
+ MainClass MainClass() : 
+ 	{ Identifier i1, i2; Statement s;} 
+ 	{ 	<CLASS> i1=Identifier() <LBRACE> 
+ 		<PUBLIC> <STATIC> <VOID> <MAIN> <LPAREN> <STRING> <LBRACKET> <RBRACKET> i2=Identifier() <RPAREN> 
+        <LBRACE> s=Statement() <RBRACE> <RBRACE> { return new MainClass(i1, i2, s, getPosition()); } 
+    }
+ 
+ ClassDeclList ClassDeclList() : 
+ 	{ ClassDeclList cl = new ClassDeclList(); ClassDecl c; } 
+ 	{ ( c=ClassDecl() { cl.addElement(c); } )* { return cl; } 
+ 	}
+ ClassDecl ClassDecl() : 
+ 	{ ClassDecl cl;} 
+ 	{ (LOOKAHEAD(3) cl=ClassDeclSimple() 
+ 		| cl=ClassDeclExtends()) { return cl; } 
+ 	}
+ ClassDecl ClassDeclSimple() : 
+ 	{ Identifier i; VarDeclList v = new VarDeclList(); MethodDeclList m = new MethodDeclList();} 
+ 	{ <CLASS> i=Identifier() 
+ 		<LBRACE> [ v=VarDeclList() ] [ m=MethodDeclList() ] <RBRACE> { return new ClassDeclSimple(i, v, m, getPosition()); } 
+ 	} 	
+ ClassDecl ClassDeclExtends() : 
+ 	{ Identifier i1, i2; VarDeclList v = new VarDeclList(); MethodDeclList m = new MethodDeclList();} 
+ 	{ <CLASS> i1=Identifier() <EXTENDS> i2=Identifier() 
+ 		<LBRACE> [ v=VarDeclList() ] [ m=MethodDeclList() ] <RBRACE> { return new ClassDeclExtends(i1, i2, v, m, getPosition()); } 
+ 	}
+ 
+ ExpList ExpList() : 
+ 	{ ExpList el = new ExpList(); Exp e; } 
+ 	{ e=Exp() { el.addElement(e); } ( <COMMA> e=Exp() { el.addElement(e); } )* { return el; }
+ 	}
+ Exp Exp() : 
+ 	{ Exp e;} 
+ 	{ e=And() { return e; } 
+ 	}
+ Exp And() : 
+ 	{ Exp e1=null,e2=null; }
+ 	{ e1=LessThan() ( <AND> e2=LessThan() { return new And(e1, e2, getPosition()); } )* { return e1; }
+ 	}
+ Exp LessThan() : 
+ 	{ Exp e1=null,e2=null; } 
+	{ e1=AdditiveExp() [ <LT> e2=AdditiveExp() { return new LessThan(e1, e2, getPosition()); } ] { return e1; }  
+	}
+ Exp AdditiveExp() : 
+ 	{ boolean usePlus = true; Exp e1=null,e2=null; } 
+ 	{ e1=Times() ( (<PLUS> {usePlus = true;} | <MINUS> {usePlus = false;})
+ 		 e2=Times() { if (usePlus) return new Plus(e1, e2, getPosition()); else return new Minus(e1, e2, getPosition()); })* { return e1; } 		 
+ 	} 
+ Exp Times() : 
+ 	{ Exp e1=null,e2=null; } 
+ 	{ e1=PrefixExp() ( <STAR> e2=PrefixExp() { return new Times(e1, e2, getPosition()); } )* { return e1; }
+ 	}
+ Exp PrefixExp() : 
+ 	{ Exp e1; } 
+	{ (LOOKAHEAD(3) e1=Not() | e1=PostfixExp()) { return e1; } 
+	}
+ Exp Not() : 	//NOTE: changed (<NOT>)+ to [<NOT>] to match grammar in book, rather than at http://cs.gettysburg.edu/~tneller/cs374/hw3.html
+ 	{ Exp e1; boolean useNot = false; } 
+ 	{ [ <NOT> {useNot=true;} ] e1=PostfixExp() { if(useNot) return new Not(e1, getPosition()); else return e1; } 
+ 	}
+ Exp PostfixExp() : 
+ 	{ Exp e1, e2; Identifier i; ExpList el = new ExpList() ; } 
+ 	{ e1=PrimaryExp() 
+ 		( <LBRACKET> e2=Exp() <RBRACKET>	{ return new ArrayLookup(e1, e2, getPosition()); }
+ 		| LOOKAHEAD(2) <DOT> i=Identifier() <LPAREN> [ el=ExpList() ] <RPAREN>	{ return new Call(e1, i, el, getPosition()); } 
+ 		| <DOT> <LENGTH> { return new ArrayLength(e1, getPosition()); } )* { return e1; }
+	}
+ //Exp Call() : {} {}  
+ //Exp Minus() : {} { <MINUS> }
+ //Exp Plus() : {} { <PLUS> } 
+ /* Primary Expressions */
+ Exp PrimaryExp() : 
+ 	{ Exp e; } 
+ 	{ ( e=IntegerLiteral() | e=True() | e=False() | e=AssociativeExp() | e=IdentifierExp() 
+ 		| e=This() | LOOKAHEAD(2) e=NewArray() | e=NewObject()) { return e; } 
+ 	}
+ Exp IntegerLiteral() : 
+ 	{ Token t; } 
+ 	{ t=<INTEGER_LITERAL> { return new IntegerLiteral(Integer.parseInt(t.image), getPosition()); } 
+ 	} 
+ Exp True() : 
+ 	{} 
+	{ <TRUE> { return new True(getPosition()); } 
+	}
+ Exp False() : 
+ 	{} 
+	{ <FALSE> { return new False(getPosition()); } 
+	} 
+ Exp AssociativeExp() :
+ 	{ Exp e; }
+	{ <LPAREN> e=Exp() <RPAREN> { return e; }	
+	}
+ Exp IdentifierExp() : 
+ 	{ Identifier i;} 
+	{ i=Identifier() { return new IdentifierExp(i.s, getPosition()); } //not sure if this is right??? 
+	} 
+ Exp This() : 
+ 	{} 
+ 	{ <THIS> { return new This(getPosition()); } 
+ 	}
+ Exp NewArray() : 
+ 	{ Exp e; } 
+ 	{ <NEW> <INTEGER> <LBRACKET> e=Exp() <RBRACKET> { return new NewArray(e, getPosition()); }
+ 	}
+ Exp NewObject() : 
+ 	{ Identifier i; } 
+	{ <NEW> i=Identifier() <LPAREN> <RPAREN> { return new NewObject(i, getPosition()); }
+	}
+ 
+ //void ArrayLength() : {} {}
+ //void ArrayLookup() : {} {}
+  
+ Formal Formal() : 
+ 	{ Type t; Identifier i;}
+ 	{ t=Type() i=Identifier() { return new Formal(t, i, getPosition()); }
+ 	}
+ FormalList FormalList() : 
+ 	{ FormalList fl = new FormalList(); Formal f;} 
+ 	{ f=Formal() { fl.addElement(f); }
+ 		( <COMMA> f=Formal() { fl.addElement(f); } )* { return fl; }
+ 	}
+   
+ MethodDecl MethodDecl() : 
+ 	{ Type t; Identifier i; FormalList fl= new FormalList(); VarDeclList vl= new VarDeclList();
+ 		 StatementList sl= new StatementList(); Exp e;} 
+ 	{ <PUBLIC> t=Type() i=Identifier() <LPAREN> [ fl=FormalList()] <RPAREN> <LBRACE> [LOOKAHEAD(2) vl=VarDeclList()]
+ 		[sl=StatementList()] <RETURN> e=Exp() <SEMICOLON> <RBRACE> { return new MethodDecl(t, i, fl, vl, sl, e, getPosition()); } 
+	}
+ MethodDeclList MethodDeclList() : 
+ 	{ MethodDeclList ml = new MethodDeclList(); MethodDecl md;} 
+ 	{ md=MethodDecl() {ml.addElement(md);} ( md=MethodDecl()  {ml.addElement(md);} )* { return ml; }
+ 	}
+ 
+ VarDecl VarDecl() : 
+ 	{ Type t; Identifier i; } 
+ 	{ t=Type() i=Identifier() <SEMICOLON> { return new VarDecl(t, i, getPosition()); } 
+ 	}
+ VarDeclList VarDeclList() : 
+ 	{ VarDeclList vl = new VarDeclList(); VarDecl v;} 
+ 	{ v=VarDecl() { vl.addElement(v); } ( LOOKAHEAD(2) v=VarDecl() { vl.addElement(v); } )* { return vl; } 
+ 	}
+  
+ Statement Statement() : 
+ 	{ Statement s; } 
+ 	{ (s=Block() | s=If() | s=Print() | s=While() | LOOKAHEAD(2) s=Assign() | s=ArrayAssign()) { return s; } 
+ 	}
+ StatementList StatementList() : 
+ 	{ StatementList sl = new StatementList(); Statement s; } 
+ 	{ s=Statement() { sl.addElement(s); }
+ 		(s=Statement() {sl.addElement(s);} )* { return sl; } 
+ 	}
+ Statement Block() : 
+ 	{ StatementList sl=null; } 
+	{ <LBRACE> [sl=StatementList()] <RBRACE> { return new Block(sl, getPosition()); } 
+	}
+ Statement If() : 
+ 	{ Exp e; Statement s1, s2; } 
+	{ <IF> <LPAREN> e=Exp() <RPAREN> s1=Statement() <ELSE> s2=Statement() { return new If(e, s1, s2, getPosition()); } 
+	}
+ Statement Print() : 
+ 	{ Exp e; } 
+ 	{ <PRINT> <LPAREN> e=Exp() <RPAREN> <SEMICOLON> { return new Print(e, getPosition()); } 
+ 	}
+ Statement While() : 
+ 	{ Exp e; Statement s; } 
+ 	{ <WHILE> <LPAREN> e=Exp() <RPAREN> s=Statement() { return new While(e,s, getPosition()); } 
+ 	}
+ Statement Assign() : 
+ 	{ Identifier i; Exp e;} 
+	{ i=Identifier() <ASSIGN> e=Exp() <SEMICOLON> { return new Assign(i, e, getPosition()); } 
+	}
+ Statement ArrayAssign() : 
+ 	{ Identifier i; Exp e1, e2;} 
+ 	{ i=Identifier() <LBRACKET> e1=Exp() <RBRACKET> <ASSIGN> e2=Exp() <SEMICOLON> { return new ArrayAssign(i, e1, e2, getPosition()); } 
+ 	}
+   
+ Type Type() : 
+ 	{ Type t; } 
+ 	{ (t=BooleanType() | t=IdentifierType() | t=IntOrIntArrayType() /*LOOKAHEAD(2) t=IntArrayType() | t=IntegerType()*/) { return t; } 
+ 	}
+ Type BooleanType() : 
+ 	{} 
+	{ <BOOLEAN> { return new BooleanType(getPosition()); } 
+	}
+ Type IdentifierType() : 
+ 	{ Identifier i; } 
+	{ i=Identifier() { return new IdentifierType(i.s, getPosition()); }
+	}
+ Type IntOrIntArrayType() :
+ 	{ Type t; }
+ 	{
+ 		<INTEGER> [ <LBRACKET> <RBRACKET> { return new IntArrayType(getPosition()); } ] { return new IntegerType(getPosition()); } 		
+ 	} 
+
+ Identifier Identifier() : 
+ 	{ Token t; } 
+ 	{ t=<IDENTIFIER> { return new Identifier(t.image, getPosition()); } 
+ 	}
+  
+ /*END OF PARSER*/
+
+/* OLD GOAL */ 
+/*void Goal() :
+{}
+{
+  ( MiniJavaToken() )*	  
+  <EOF> 
+  { System.out.println("Successfully recognized all tokens"); }
+}
+*/
+
+Program Goal() :
+	{ Program p; } 
+	{ p=Program() <EOF> { return p; } 
+	}
+
+void MiniJavaToken():
+{}
+{
+  "class"  |  <IDENTIFIER> | "{" | "public" | "static" | "void" |
+  "main" | "(" | "String"  | "[" | "]" | ")" | "}" | "extends" | ";"
+  | "return" | "," | "int" | "boolean" | "=" | "if" | "else" | "while"
+  | "System.out.println" | "&&" | "<" | "+" | "-" | "*" | "." |
+  "length" | <INTEGER_LITERAL> | "true" | "false" | "this" | "new" | 
+  "!" 
+}
+
+

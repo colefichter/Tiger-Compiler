@@ -1,0 +1,95 @@
+package symbol;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import syntaxtree.*;
+
+public class MethodSymbol extends Symbol {
+	public Type returnType;
+		
+	protected HashMap<String, ParameterSymbol> params = new HashMap<String, ParameterSymbol>();
+	protected HashMap<String, VariableSymbol> locals = new HashMap<String, VariableSymbol>();
+	
+	//later on, we'll need to know the order of declarations
+	protected ArrayList<Symbol> orderedSymbols = new ArrayList<Symbol>();
+	
+	public int numParams() {
+		return params.size();
+	}
+	
+	public ParameterSymbol lookupParam(String id) {
+		if (params.containsKey(id)) {
+			return params.get(id);
+		}
+		return null;
+	}
+	
+	public ParameterSymbol getParam(int index) {
+		int i = 0;
+		for (Symbol s : orderedSymbols) {
+			if (s instanceof ParameterSymbol) {
+				if (i == index) {
+					return (ParameterSymbol) s;
+				}
+				i++;
+			}
+		}		
+		return null;
+	}
+	
+	public VariableSymbol lookupLocal(String id) {
+		if (locals.containsKey(id)) {
+			return locals.get(id);
+		}
+		return null;
+	}
+	
+	public boolean addLocal(String id, Type t) {
+		if (!locals.containsKey(id)) {
+			VariableSymbol v = new VariableSymbol();
+			v.id = id;
+			v.t = t;
+			locals.put(id, v);
+			orderedSymbols.add(v);
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean addParam(String id, Type t) {
+		if (!params.containsKey(id)) {			
+			ParameterSymbol p = new ParameterSymbol();			
+			p.id = id;
+			p.t = t;
+			params.put(id, p);
+			orderedSymbols.add(p);
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public void dumpContents(int indent) {
+		indent(indent);
+		System.out.println(returnType + " " + id);
+		
+		indent++;
+		indent(indent);
+		System.out.println("Params:");		
+		for (Symbol s : orderedSymbols) {
+			if (s instanceof ParameterSymbol) {
+				s.dumpContents(indent + 1);
+			}
+		}
+		
+		indent(indent);
+		System.out.println("Locals:");		
+		for (Symbol s : orderedSymbols) {
+			if (s instanceof VariableSymbol) {
+				s.dumpContents(indent + 1);
+			}
+		}		
+	}
+}

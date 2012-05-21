@@ -1,0 +1,351 @@
+package visitor;
+
+import symbol.*;
+import syntaxtree.*;
+
+public class Interpreter implements InterpreterVisitor {	
+	public SymbolTable symbolTable;
+	ClassSymbol currClass = null;	// current class
+	MethodSymbol currMethod = null;	// current method
+	
+	public Interpreter(SymbolTable st) {
+		symbolTable = st;
+	}
+	
+	protected Symbol lookup(String id) {
+		//lookups happen in order of precedence!
+		if (currMethod != null && currMethod.lookupLocal(id) != null) {
+			return currMethod.lookupLocal(id);
+		}
+		if (currMethod != null && currMethod.lookupParam(id) != null) {
+			return currMethod.lookupParam(id);
+		}
+		if (currClass != null && currClass.lookupField(id) != null) {
+			return currClass.lookupField(id);
+		}
+		if (symbolTable.lookup(id) != null) {
+			// it's a class name...
+			//return new IdentifierType(id, null);
+			
+			//what to do here???			
+		}
+
+		return null;
+	}
+	
+	
+	 // MainClass m;
+	  // ClassDeclList cl;
+	  public Object visit(Program n) {
+	    n.m.accept(this);
+	    for ( int i = 0; i < n.cl.size(); i++ ) {
+	        n.cl.elementAt(i).accept(this);
+	    }
+	    
+	    return null;
+	  }
+	  
+	  // Identifier i1,i2;
+	  // Statement s;
+	  public Object visit(MainClass n) {
+	    n.i1.accept(this);
+	    n.i2.accept(this);
+	    n.s.accept(this);
+	    
+	    return null;
+	  }
+	  
+	  // Identifier i;
+	  // VarDeclList vl;
+	  // MethodDeclList ml;
+	  public Object visit(ClassDeclSimple n) {
+	    n.i.accept(this);
+	    for ( int i = 0; i < n.vl.size(); i++ ) {
+	        n.vl.elementAt(i).accept(this);
+	    }
+	    for ( int i = 0; i < n.ml.size(); i++ ) {
+	        n.ml.elementAt(i).accept(this);
+	    }
+	    
+	    return null;
+	  }
+	 
+	  // Identifier i;
+	  // Identifier j;
+	  // VarDeclList vl;
+	  // MethodDeclList ml;
+	  public Object visit(ClassDeclExtends n) {
+	    n.i.accept(this);
+	    n.j.accept(this);
+	    for ( int i = 0; i < n.vl.size(); i++ ) {
+	        n.vl.elementAt(i).accept(this);
+	    }
+	    for ( int i = 0; i < n.ml.size(); i++ ) {
+	        n.ml.elementAt(i).accept(this);
+	    }
+	    
+	    return null;
+	  }
+
+	  // Type t;
+	  // Identifier i;
+	  public Object visit(VarDecl n) {
+		n.t.accept(this);
+	    n.i.accept(this);
+		  
+	    Symbol s = lookup(n.i.s);	    
+	      
+		  if (n.t instanceof BooleanType) {
+			  s.value = false; //Correct default?
+		  }else if (n.t instanceof IntegerType) {
+			  s.value = 0; //Correct default?
+		  }else if (n.t instanceof IdentifierType) {
+			  s.value = null; //Correct default? Maybe new up a class?
+		  }else if (n.t instanceof IntArrayType) {
+			  s.value = new int[0]; //Correct default?
+		  }else
+		  {
+			  System.out.println("Invalid type in Variable Declaration!"); //shouldn't happen
+		  }
+
+		  return null;
+	  }
+
+	  // Type t;
+	  // Identifier i;
+	  // FormalList fl;
+	  // VarDeclList vl;
+	  // StatementList sl;
+	  // Exp e;
+	  public Object visit(MethodDecl n) {
+	    n.t.accept(this);
+	    n.i.accept(this);
+	    for ( int i = 0; i < n.fl.size(); i++ ) {
+	        n.fl.elementAt(i).accept(this);
+	    }
+	    for ( int i = 0; i < n.vl.size(); i++ ) {
+	        n.vl.elementAt(i).accept(this);
+	    }
+	    for ( int i = 0; i < n.sl.size(); i++ ) {
+	        n.sl.elementAt(i).accept(this);
+	    }
+	    Object returnValue = n.e.accept(this);
+	    
+	    return returnValue;
+	  }
+
+	  // Type t;
+	  // Identifier i;
+	  public Object visit(Formal n) {
+	    n.t.accept(this);
+	    n.i.accept(this);
+	    
+	    //TODO: lookup value
+	    return null;
+	  }
+
+	  public Object visit(IntArrayType n) {
+		  return null;
+	  }
+
+	  public Object visit(BooleanType n) {
+		  return null;
+	  }
+
+	  public Object visit(IntegerType n) {
+		  return null;
+	  }
+
+	  // String s;
+	  public Object visit(IdentifierType n) {
+		  return null;
+	  }
+
+	  // StatementList sl;
+	  public Object visit(Block n) {
+	    for ( int i = 0; i < n.sl.size(); i++ ) {
+	        n.sl.elementAt(i).accept(this);
+	    }
+	    
+	    return null;
+	  }
+
+	  // Exp e;
+	  // Statement s1,s2;
+	  public Object visit(If n) {
+		  boolean condition = (Boolean) n.e.accept(this);
+		  if (condition) {
+			  n.s1.accept(this);
+		  }
+		  else {
+			  n.s2.accept(this);
+		  }
+		  
+		  return null;
+	  }
+
+	  // Exp e;
+	  // Statement s;
+	  public Object visit(While n) {
+	    boolean condition = (Boolean) n.e.accept(this);
+	    
+	    while(condition) {
+	    	n.s.accept(this);
+	    	condition = (Boolean) n.e.accept(this);
+	    }
+	    
+	    return null;
+	  }
+
+	  // Exp e;
+	  public Object visit(Print n) {
+	    Object o = n.e.accept(this);
+	    if (o == null) {
+	    	System.out.println("NULL");
+	    } else {
+	    	System.out.println(o.toString());
+	    }
+	    
+	    return null;
+	  }
+	  
+	  // Identifier i;
+	  // Exp e;
+	  public Object visit(Assign n) {
+	    n.i.accept(this);
+	    n.e.accept(this);
+	    
+	    return null;
+	  }
+
+	  // Identifier i;
+	  // Exp e1,e2;
+	  public Object visit(ArrayAssign n) {
+	    n.i.accept(this);
+	    n.e1.accept(this);
+	    n.e2.accept(this);
+	    
+	    return null;
+	  }
+
+	  // Exp e1,e2;
+	  public Object visit(And n) {
+	    boolean left = (Boolean) n.e1.accept(this);
+	    boolean right = (Boolean) n.e2.accept(this);
+	    
+	    return (left && right);
+	  }
+
+	  // Exp e1,e2;
+	  public Object visit(LessThan n) {
+		  int left = (Integer) n.e1.accept(this);
+		  int right = (Integer) n.e2.accept(this);
+		  
+		  return (left < right);
+	  }
+
+	  // Exp e1,e2;
+	  public Object visit(Plus n) {
+	    int left = (Integer) n.e1.accept(this);
+	    int right = (Integer) n.e2.accept(this);
+	    
+	    return left + right;
+	  }
+
+	  // Exp e1,e2;
+	  public Object visit(Minus n) {
+		  int left = (Integer) n.e1.accept(this);
+		  int right = (Integer) n.e2.accept(this);
+		  
+		  return left - right;
+	  }
+
+	  // Exp e1,e2;
+	  public Object visit(Times n) {
+		  int left = (Integer) n.e1.accept(this);
+		  int right = (Integer) n.e2.accept(this);
+		  
+		  return left * right;
+	  }
+
+	  // Exp e1,e2;
+	  public Object visit(ArrayLookup n) {
+	    n.e1.accept(this);
+	    n.e2.accept(this);
+	    
+	    return null;
+	  }
+
+	  // Exp e;
+	  public Object visit(ArrayLength n) {
+	    return (Integer) n.e.accept(this);
+	  }
+
+	  // Exp e;
+	  // Identifier i;
+	  // ExpList el;
+	  public Object visit(Call n) {
+		  Object instanceVariable = (Object) n.e.accept(this);
+	    Identifier methodName = (Identifier) n.i.accept(this);
+	    for ( int i = 0; i < n.el.size(); i++ ) {
+	        n.el.elementAt(i).accept(this);
+	    }
+	    
+	    
+	    return null;
+	  }
+
+	  // int i;
+	  public int visit(IntegerLiteral n) {
+		  return n.i;
+	  }
+
+	  public boolean visit(True n) {
+		  return true;
+	  }
+
+	  public boolean visit(False n) {
+		  return false;
+	  }
+
+	  // String s;
+	  public Symbol visit(IdentifierExp n) {
+		  return lookup(n.s);
+	  }
+
+	  public Object visit(This n) {
+		  return currClass; //TODO: is this right?
+	  }
+
+	  // Exp e;
+	  public int[] visit(NewArray n) {
+	    int length = (Integer) n.e.accept(this);
+	    return new int[length];
+	  }
+	  
+	  
+	  public Object visit(SeqExp n) {
+	    n.e1.accept(this);
+	    n.e2.accept(this);
+	    
+	    return null;
+	  }
+	  
+	  
+
+	  // Identifier i;
+	  public Object visit(NewObject n) {
+		  return new Object(); //TODO: is this right?
+	  }
+
+	  // Exp e;
+	  public Object visit(Not n) {
+	    boolean b = (Boolean) n.e.accept(this);
+	    return !b;
+	  }
+
+	  // String s;
+	  public Symbol visit(Identifier n) {
+		  return lookup(n.s);
+	  }
+}

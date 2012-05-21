@@ -1,0 +1,6 @@
+package tree;
+abstract public class AExp {
+	abstract public ExpList kids();
+	abstract public Exp build(ExpList kids);
+}
+

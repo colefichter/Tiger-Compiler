@@ -1,0 +1,25 @@
+package visitor;
+
+import java.util.*;
+import syntaxtree.*;
+import symbol.SymbolTable;
+
+public class MIPSTranslator extends DepthFirstVisitor {
+	public SymbolTable symbolTable;
+	
+	public MIPSTranslator(SymbolTable st) {
+		symbolTable = st;
+	}
+	
+	/*Methods for generating assembly code*/
+	public void emit() {
+		//TODO: write this...
+	}
+	
+	public void emitLabel() {
+		//TODO: write this...
+	}
+	/**/
+	
+	
+}

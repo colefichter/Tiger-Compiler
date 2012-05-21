@@ -1,0 +1,13 @@
+package symbol;
+
+import syntaxtree.*;
+
+public class VariableSymbol extends Symbol {
+	public Type t;
+	public Object value;
+	
+	public void dumpContents(int indent) {
+		indent(indent);
+		System.out.println(t + " " + id);		
+	}
+}

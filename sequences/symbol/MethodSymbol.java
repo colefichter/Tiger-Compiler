@@ -7,11 +7,15 @@ import syntaxtree.*;
 
 public class MethodSymbol extends Symbol {
 	public Type returnType;
+		
 	protected HashMap<String, ParameterSymbol> params = new HashMap<String, ParameterSymbol>();
 	protected HashMap<String, VariableSymbol> locals = new HashMap<String, VariableSymbol>();
 	
 	//later on, we'll need to know the order of declarations
 	protected ArrayList<Symbol> orderedSymbols = new ArrayList<Symbol>();
+	
+	
+	public ExpList el = new ExpList();
 	
 	public int numParams() {
 		return params.size();
@@ -58,8 +62,8 @@ public class MethodSymbol extends Symbol {
 	}
 	
 	public boolean addParam(String id, Type t) {
-		if (!params.containsKey(id)) {
-			ParameterSymbol p = new ParameterSymbol();
+		if (!params.containsKey(id)) {			
+			ParameterSymbol p = new ParameterSymbol();			
 			p.id = id;
 			p.t = t;
 			params.put(id, p);

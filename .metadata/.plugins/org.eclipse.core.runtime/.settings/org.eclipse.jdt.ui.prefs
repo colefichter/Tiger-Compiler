@@ -1,4 +1,4 @@
-#Thu Apr 14 15:59:09 MDT 2011
+#Mon May 21 15:42:30 MDT 2012
 content_assist_proposals_foreground=0,0,0
 spelling_locale=en_GB
 spelling_locale_initialized=true
@@ -18,5 +18,5 @@ org.eclipse.jdt.ui.formatterprofiles.version=11
 content_assist_number_of_computers=16
 useQuickDiffPrefPage=true
 org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
-content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.util.Map"><rhs name\="java.util.Hashtable"/></lhs><lhs name\="java.lang.Cloneable"><rhs name\="java.util.Hashtable"/></lhs><lhs name\="java.util.Dictionary"><rhs name\="java.util.Hashtable"/></lhs><lhs name\="java.util.Hashtable"><rhs name\="java.util.Hashtable"/></lhs><lhs name\="symbol.Symbol"><rhs name\="symbol.VariableSymbol"/></lhs><lhs name\="syntaxtree.Type"><rhs name\="syntaxtree.IntArrayType"/><rhs name\="syntaxtree.IdentifierType"/></lhs></history>
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.util.Map"><rhs name\="java.util.Hashtable"/></lhs><lhs name\="java.lang.Cloneable"><rhs name\="java.util.Hashtable"/></lhs><lhs name\="java.util.Dictionary"><rhs name\="java.util.Hashtable"/></lhs><lhs name\="java.util.Hashtable"><rhs name\="java.util.Hashtable"/></lhs><lhs name\="symbol.Symbol"><rhs name\="symbol.VariableSymbol"/></lhs><lhs name\="syntaxtree.Type"><rhs name\="syntaxtree.IntArrayType"/><rhs name\="syntaxtree.IdentifierType"/></lhs><lhs name\="symbol.VariableSymbol"><rhs name\="symbol.VariableSymbol"/></lhs></history>
 org.eclipse.jdt.ui.text.code_templates_migrated=true
