@@ -19,6 +19,7 @@ public class Label  {
    * Makes a new label that prints as "name".
    * Warning: avoid repeated calls to <tt>new Label(s)</tt> with
    * the same name <tt>s</tt>.
+   * See page 131: use new Temp.Lable("C" + "$" + "m") where "C" is the class name and "m" is the method name.
    */
    public Label(String n) {
 	name=n;

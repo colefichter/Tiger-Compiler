@@ -8,10 +8,12 @@ import frame.AccessList;
 public class Frame extends frame.Frame {
 
 	public Access allocLocal(boolean escape) {
-		//TODO
+		//Note: in mini-java, variables NEVER escape! (see page 130).
+		//We'll always be returning an InReg() object.
 		return null;
 	}
 	
+	///In mini-java, no parameters ever escape (see p 127)! Never create a BoolList with parameter h = true.
 	public Frame newFrame(Label name, BoolList formals) {
 		mips.Frame f = new mips.Frame();
 		//TODO: set members...

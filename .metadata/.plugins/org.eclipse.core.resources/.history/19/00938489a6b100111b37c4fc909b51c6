@@ -1,0 +1,15 @@
+package frame;
+
+import temp.Temp;
+import temp.Label;
+import util.BoolList;
+
+public abstract class Frame {
+	public Label name;
+	public AccessList formals;
+	abstract public Access allocLocal(boolean escape);
+	  ///In mini-java, no parameters ever escape (see p 127)! Never create a BoolList with parameter h = true.
+	abstract public Frame newFrame(Label name, BoolList formals);
+	
+	//more stuff later on...
+}
