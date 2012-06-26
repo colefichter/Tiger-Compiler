@@ -1,6 +1,8 @@
 package tree;
 import temp.Temp;
 import temp.Label;
+//Represents the application of a binary operator to two expressions (left and right).
+//Left is evaluated before Right.
 public class BINOP extends Exp {
   public int binop;
   public Exp left, right;

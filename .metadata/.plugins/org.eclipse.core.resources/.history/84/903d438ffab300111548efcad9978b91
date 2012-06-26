@@ -1,0 +1,7 @@
+package frame;
+
+///Describes formals or locals that may be in the frame or registers.
+public abstract class Access {
+	pubic abstract Tree.Exp exp(Tree.Exp framePtr);
+	//TODO?
+}

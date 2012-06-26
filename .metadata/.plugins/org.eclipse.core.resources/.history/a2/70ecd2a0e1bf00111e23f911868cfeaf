@@ -1,0 +1,25 @@
+package translate;
+
+import tree.Stm;
+import temp.*;
+
+///An ordinary expression that yields a single value.
+public class Ex extends Exp{
+	tree.Exp exp;
+	Ex(tree.Exp e) { exp = e; }
+	public tree.Exp unEx() { return exp; }
+	tree.Stm unNx() { 
+		return new tree.EXPX(exp);
+	}
+	tree.Stm unCx(Label t, Label f) {
+		if (exp instanceof tree.CONST) {
+			tree.CONST c = (tree.CONST) exp;
+			if (c.value == 1) {
+				return new tree.JUMP(t);
+			}
+			else {
+				return new tree.JUMP(f);
+			}
+		}
+	}
+}

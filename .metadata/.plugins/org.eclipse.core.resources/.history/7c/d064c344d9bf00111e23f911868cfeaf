@@ -1,0 +1,15 @@
+package translate;
+
+import tree.Stm;
+
+public class Ex extends Exp{
+	tree.exp;
+	Ex(tree.Exp e) { exp = e; }
+	public tree.Exp unEx() { return exp; }
+	tree.Stm unNx() { 
+		//TODO: ???	
+	}
+	tree.Stm unCx(tree.Label t, tree.Label f) {
+		//TODO: ???
+	}
+}

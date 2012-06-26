@@ -1,0 +1,38 @@
+package mips;
+
+import java.util.*;
+import temp.Label;
+import temp.Temp;
+import util.BoolList;
+import frame.Access;
+import frame.AccessList;
+
+//MIPS Frame implementation
+public class Frame extends frame.Frame {
+
+	private static final int wordSize = 4;
+	private int offset = 0;
+	
+	private Frame(Label name, List<boolean> formals) {
+		this.name = name;
+		this.formals = formals;
+	}
+	
+	public int wordSize() { return wordSize; }
+       
+  ///In mini-java, no parameters ever escape (see p 127)! Never create a BoolList with parameter h = true.
+	public Frame newFrame(Label name, java.util.List<boolean> formals) {
+		return new mips.Frame(name, formals);
+	}
+	
+    public Access allocLocal(boolean escape) {
+    	//Note: in mini-java, variables NEVER escape! (see page 130).
+		//We'll always be returning an InReg() object.
+        if (escape) {
+            Access result = new InFrame(offset);
+            offset -= wordSize;
+            return result;
+        } else
+            return new InReg(new Temp());
+    }
+}

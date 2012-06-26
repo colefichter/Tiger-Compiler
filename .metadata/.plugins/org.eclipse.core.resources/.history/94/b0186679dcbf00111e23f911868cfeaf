@@ -1,0 +1,18 @@
+package translate;
+
+import temp.*;
+
+///An expression that does not yield a value. Thus, a statement, essentially.
+public class Nx extends Exp{
+	tree.Stm stm;
+	Nx(tree.Stm s) { stm=s; }
+	tree.Exp unEx() {
+		//TODO ???
+		return null;
+	}
+	tree.Stm unNx() { return stm; }
+	tree.Stm unCx(Label t, Label f) {
+		//TODO ???
+		return null;
+	}	
+}

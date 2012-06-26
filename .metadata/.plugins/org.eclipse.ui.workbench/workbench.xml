@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="15" version="2.0">
 <workbenchAdvisor/>
-<window height="1160" maximized="true" width="1713" x="82" y="12">
+<window height="1160" maximized="true" minimized="true" width="1713" x="82" y="12">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -34,21 +34,26 @@
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MiniJavaParser.java" partName="MiniJavaParser.java" path="C:/tiger2/chap6/MiniJavaParser.java" title="MiniJavaParser.java" tooltip="chap6/MiniJavaParser.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/chap6/MiniJavaParser.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="43327" selectionTopPixel="17493"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Frame.java" partName="Frame.java" path="C:/tiger2/chap7/frame/Frame.java" title="Frame.java" tooltip="chap7/frame/Frame.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/chap7/frame/Frame.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="920" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MiniJavaParserTokenManager.java" partName="MiniJavaParserTokenManager.java" path="C:/tiger2/chap6/MiniJavaParserTokenManager.java" title="MiniJavaParserTokenManager.java" tooltip="chap6/MiniJavaParserTokenManager.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/chap6/MiniJavaParserTokenManager.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="32646" selectionTopPixel="18275"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Frame.java" partName="Frame.java" path="C:/tiger2/chap7/mips/Frame.java" title="Frame.java" tooltip="chap7/mips/Frame.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/chap7/mips/Frame.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2205" selectionTopPixel="765"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Main.java" partName="Main.java" path="C:/tiger2/chap6/Main.java" title="Main.java" tooltip="chap6/Main.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/chap6/Main.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1379" selectionTopPixel="595"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Access.java" partName="Access.java" path="C:/tiger2/chap7/frame/Access.java" title="Access.java" tooltip="chap7/frame/Access.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/chap7/frame/Access.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="147" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Exp.java" partName="Exp.java" path="C:/tiger2/chap7/translate/Exp.java" title="Exp.java" tooltip="chap7/translate/Exp.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/chap7/translate/Exp.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="48" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -57,7 +62,6 @@
 </view>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
-<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 </viewState>
 </view>
@@ -67,7 +71,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings"/>
+<category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -115,8 +119,12 @@
 <view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
 <viewState/>
 </view>
-<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
-<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
+<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc">
+<viewState/>
+</view>
 </views>
 <perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
@@ -325,166 +333,170 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/sequences/visitor/Interpreter.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/sequences/visitor/TypeCheckVisitor.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/sequences/symbol/MethodSymbol.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/sequences/symbol/ParameterSymbol.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/sequences/syntaxtree/MethodDecl.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/sequences/MiniJavaParser.jj"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/sequences/syntaxtree/MethodDecl.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/MiniJavaParser.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/MiniJavaParserTokenManager.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap6/Main.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap7/mips/Frame.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap7/mips/MIPSFrame.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap7/frame/Frame.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap7/frame/Access.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap7/frame/AccessList.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap7/mips/InReg.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap7/mips/MIPSFrame.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap7/mips/MIPSFrame.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap7/MiniJavaParser.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap7/frame/Frame.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap7/frame/Frame.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap7/mips/Frame.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap7/frame/Access.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/chap7/translate/Exp.java"/>
 </editors>
-<item historyLabel="MethodSymbol.java" index="2">
-<position info="not_deleted" x="248" y="15"/>
+<item historyLabel="Frame.java" index="2">
+<position info="not_deleted" x="1011" y="0"/>
 </item>
-<item historyLabel="MethodSymbol.java" index="2">
-<position info="not_deleted" x="1509" y="0"/>
+<item historyLabel="Frame.java" index="0">
+<position/>
 </item>
-<item historyLabel="MethodSymbol.java" index="2">
-<position info="not_deleted" x="1463" y="0"/>
+<item historyLabel="Frame.java" index="2">
+<position info="not_deleted" x="354" y="12"/>
 </item>
-<item historyLabel="ParameterSymbol.java" index="3">
-<position info="not_deleted" x="108" y="0"/>
+<item historyLabel="Frame.java" index="0">
+<position info="not_deleted" x="401" y="0"/>
 </item>
-<item historyLabel="MethodSymbol.java" index="2">
-<position info="not_deleted" x="762" y="8"/>
+<item historyLabel="Frame.java" index="0">
+<position info="not_deleted" x="386" y="0"/>
 </item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="7192" y="0"/>
+<item historyLabel="MIPSFrame.java" index="1">
+<position info="not_deleted" x="4297" y="0"/>
 </item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="7157" y="0"/>
-</item>
-<item historyLabel="MethodSymbol.java" index="2">
-<position info="not_deleted" x="762" y="8"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="7489" y="6"/>
-</item>
-<item historyLabel="MethodSymbol.java" index="2">
-<position info="not_deleted" x="762" y="8"/>
-</item>
-<item historyLabel="MethodSymbol.java" index="2">
-<position info="not_deleted" x="536" y="0"/>
-</item>
-<item historyLabel="MethodSymbol.java" index="2">
-<position info="not_deleted" x="536" y="0"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="7489" y="6"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="7165" y="0"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="6887" y="0"/>
-</item>
-<item historyLabel="MethodSymbol.java" index="2">
-<position info="not_deleted" x="280" y="7"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="310" y="0"/>
-</item>
-<item historyLabel="ParameterSymbol.java" index="3">
-<position info="not_deleted" x="88" y="0"/>
-</item>
-<item historyLabel="MethodSymbol.java" index="2">
-<position info="not_deleted" x="280" y="7"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="310" y="0"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="368" y="0"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="281" y="7"/>
-</item>
-<item historyLabel="MethodSymbol.java" index="2">
-<position info="not_deleted" x="27" y="0"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="281" y="7"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="3087" y="0"/>
-</item>
-<item historyLabel="MethodDecl.java" index="4">
-<position info="not_deleted" x="524" y="0"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="7374" y="0"/>
-</item>
-<item historyLabel="MethodSymbol.java" index="2">
-<position info="not_deleted" x="729" y="0"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="7292" y="163"/>
-</item>
-<item historyLabel="TypeCheckVisitor.java" index="1">
-<position info="not_deleted" x="9112" y="0"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="7292" y="163"/>
-</item>
-<item historyLabel="MethodDecl.java" index="4">
-<position info="not_deleted" x="207" y="11"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="7292" y="163"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="7524" y="0"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="7596" y="11"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="6971" y="0"/>
-</item>
-<item historyLabel="Interpreter.java" index="0">
-<position info="not_deleted" x="8235" y="0"/>
-</item>
-<item historyLabel="MiniJavaParser.jj" index="5">
+<item historyLabel="AccessList.java" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="MethodDecl.java" index="6">
+<item historyLabel="MIPSFrame.java" index="1">
+<position info="not_deleted" x="4297" y="0"/>
+</item>
+<item historyLabel="Access.java" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="MiniJavaParser.java" index="7">
+<item historyLabel="Frame.java" index="0">
+<position info="not_deleted" x="386" y="0"/>
+</item>
+<item historyLabel="Frame.java" index="0">
+<position info="not_deleted" x="384" y="21"/>
+</item>
+<item historyLabel="Frame.java" index="0">
+<position/>
+</item>
+<item historyLabel="Access.java" index="3">
+<position info="not_deleted" x="129" y="0"/>
+</item>
+<item historyLabel="Frame.java" index="0">
+<position info="not_deleted" x="437" y="0"/>
+</item>
+<item historyLabel="MIPSFrame.java" index="1">
+<position info="not_deleted" x="4297" y="0"/>
+</item>
+<item historyLabel="Frame.java" index="0">
+<position info="not_deleted" x="437" y="0"/>
+</item>
+<item historyLabel="InReg.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="MiniJavaParser.java" index="7">
-<position info="not_deleted" x="975" y="0"/>
+<item historyLabel="MIPSFrame.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="MiniJavaParser.java" index="7">
-<position info="not_deleted" x="43227" y="0"/>
+<item historyLabel="MIPSFrame.java" index="6">
+<position info="not_deleted" x="4143" y="2"/>
 </item>
-<item historyLabel="MiniJavaParserTokenManager.java" index="8">
-<position info="not_deleted" x="32646" y="0"/>
+<item historyLabel="MIPSFrame.java" index="6">
+<position info="not_deleted" x="2016" y="2"/>
 </item>
-<item historyLabel="MiniJavaParser.java" index="7">
-<position info="not_deleted" x="43271" y="0"/>
+<item historyLabel="MIPSFrame.java" index="6">
+<position info="not_deleted" x="4181" y="0"/>
 </item>
-<item historyLabel="Main.java" index="9">
-<position info="not_deleted" x="141" y="14"/>
+<item historyLabel="MIPSFrame.java" index="6">
+<position info="not_deleted" x="5541" y="7"/>
 </item>
-<item historyLabel="MiniJavaParser.java" index="7">
-<position info="not_deleted" x="43327" y="0"/>
+<item historyLabel="MIPSFrame.java" index="6">
+<position info="not_deleted" x="4144" y="0"/>
 </item>
-<item historyLabel="MiniJavaParserTokenManager.java" index="8">
-<position info="not_deleted" x="32646" y="0"/>
+<item historyLabel="MIPSFrame.java" index="6">
+<position info="not_deleted" x="4726" y="0"/>
 </item>
-<item historyLabel="Main.java" index="9">
-<position info="not_deleted" x="1379" y="0"/>
+<item historyLabel="Frame.java" index="0">
+<position info="not_deleted" x="1127" y="5"/>
 </item>
-<item historyLabel="MiniJavaParserTokenManager.java" index="8">
-<position info="not_deleted" x="32646" y="0"/>
+<item historyLabel="MIPSFrame.java" index="7">
+<position info="not_deleted" x="259" y="0"/>
 </item>
-<item active="true" historyLabel="Main.java" index="9">
-<position info="not_deleted" x="1379" y="0"/>
+<item historyLabel="Frame.java" index="0">
+<position info="not_deleted" x="3094" y="0"/>
+</item>
+<item historyLabel="MIPSFrame.java" index="7">
+<position info="not_deleted" x="5536" y="780"/>
+</item>
+<item historyLabel="Frame.java" index="0">
+<position info="not_deleted" x="2265" y="0"/>
+</item>
+<item historyLabel="MIPSFrame.java" index="7">
+<position info="not_deleted" x="3411" y="0"/>
+</item>
+<item historyLabel="Frame.java" index="0">
+<position info="not_deleted" x="1712" y="0"/>
+</item>
+<item historyLabel="MIPSFrame.java" index="7">
+<position info="not_deleted" x="2019" y="1339"/>
+</item>
+<item historyLabel="Frame.java" index="0">
+<position info="not_deleted" x="2297" y="0"/>
+</item>
+<item historyLabel="MIPSFrame.java" index="7">
+<position info="not_deleted" x="0" y="15716"/>
+</item>
+<item historyLabel="Frame.java" index="0">
+<position info="not_deleted" x="2716" y="0"/>
+</item>
+<item historyLabel="MiniJavaParser.java" index="8">
+<position info="not_deleted" x="730" y="56"/>
+</item>
+<item historyLabel="Frame.java" index="0">
+<position info="not_deleted" x="1700" y="0"/>
+</item>
+<item historyLabel="MIPSFrame.java" index="7">
+<position info="not_deleted" x="2476" y="0"/>
+</item>
+<item historyLabel="Frame.java" index="0">
+<position info="not_deleted" x="3230" y="0"/>
+</item>
+<item historyLabel="Frame.java" index="9">
+<position info="not_deleted" x="895" y="0"/>
+</item>
+<item historyLabel="Frame.java" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Frame.java" index="11">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Frame.java" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Frame.java" index="10">
+<position info="not_deleted" x="920" y="0"/>
+</item>
+<item historyLabel="Frame.java" index="11">
+<position info="not_deleted" x="2205" y="0"/>
+</item>
+<item historyLabel="Access.java" index="12">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Access.java" index="12">
+<position info="not_deleted" x="202" y="0"/>
+</item>
+<item historyLabel="Access.java" index="12">
+<position info="not_deleted" x="147" y="0"/>
+</item>
+<item historyLabel="Exp.java" index="13">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="Exp.java" index="13">
+<position info="not_deleted" x="91" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -503,50 +515,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Main.java" tooltip="chap6/Main.java">
-<persistable path="/chap6/Main.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Exp.java" tooltip="chap7/translate/Exp.java">
+<persistable path="/chap7/translate/Exp.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="MiniJavaParser.jj" tooltip="chap6/MiniJavaParser.jj">
-<persistable path="/chap6/MiniJavaParser.jj"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Access.java" tooltip="chap7/frame/Access.java">
+<persistable path="/chap7/frame/Access.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MiniJavaParserTokenManager.java" tooltip="chap6/MiniJavaParserTokenManager.java">
-<persistable path="/chap6/MiniJavaParserTokenManager.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Frame.java" tooltip="chap7/mips/Frame.java">
+<persistable path="/chap7/mips/Frame.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MiniJavaParser.java" tooltip="chap6/MiniJavaParser.java">
-<persistable path="/chap6/MiniJavaParser.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Frame.java" tooltip="chap7/frame/Frame.java">
+<persistable path="/chap7/frame/Frame.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodDecl.java" tooltip="sequences/syntaxtree/MethodDecl.java">
-<persistable path="/sequences/syntaxtree/MethodDecl.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MiniJavaParser.java" tooltip="chap7/MiniJavaParser.java">
+<persistable path="/chap7/MiniJavaParser.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ParameterSymbol.java" tooltip="sequences/symbol/ParameterSymbol.java">
-<persistable path="/sequences/symbol/ParameterSymbol.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MIPSFrame.java" tooltip="chap7/mips/MIPSFrame.java">
+<persistable path="/chap7/mips/MIPSFrame.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodSymbol.java" tooltip="sequences/symbol/MethodSymbol.java">
-<persistable path="/sequences/symbol/MethodSymbol.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InReg.java" tooltip="chap7/mips/InReg.java">
+<persistable path="/chap7/mips/InReg.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Call.java" tooltip="sequences/syntaxtree/Call.java">
-<persistable path="/sequences/syntaxtree/Call.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AccessList.java" tooltip="chap7/frame/AccessList.java">
+<persistable path="/chap7/frame/AccessList.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TypeCheckVisitor.java" tooltip="sequences/visitor/TypeCheckVisitor.java">
-<persistable path="/sequences/visitor/TypeCheckVisitor.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TempMap.java" tooltip="chap7/temp/TempMap.java">
+<persistable path="/chap7/temp/TempMap.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="VarDecl.java" tooltip="sequences/syntaxtree/VarDecl.java">
-<persistable path="/sequences/syntaxtree/VarDecl.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BoolList.java" tooltip="chap7/util/BoolList.java">
+<persistable path="/chap7/util/BoolList.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="MiniJavaParser.jj" tooltip="sequences/MiniJavaParser.jj">
-<persistable path="/sequences/MiniJavaParser.jj"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Symbol.java" tooltip="chap7/symbol/Symbol.java">
+<persistable path="/chap7/symbol/Symbol.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Formal.java" tooltip="sequences/syntaxtree/Formal.java">
-<persistable path="/sequences/syntaxtree/Formal.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InReg.java" tooltip="chap6/mips/InReg.java">
+<persistable path="/chap6/mips/InReg.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BooleanType.java" tooltip="sequences/syntaxtree/BooleanType.java">
-<persistable path="/sequences/syntaxtree/BooleanType.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InFrame.java" tooltip="chap6/mips/InFrame.java">
+<persistable path="/chap6/mips/InFrame.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IntArrayType.java" tooltip="sequences/syntaxtree/IntArrayType.java">
-<persistable path="/sequences/syntaxtree/IntArrayType.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InFrame.java" tooltip="chap7/mips/InFrame.java">
+<persistable path="/chap7/mips/InFrame.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Print.java" tooltip="sequences/syntaxtree/Print.java">
-<persistable path="/sequences/syntaxtree/Print.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Label.java" tooltip="chap7/temp/Label.java">
+<persistable path="/chap7/temp/Label.java"/>
 </file>
 </mruList>
 </workbench>

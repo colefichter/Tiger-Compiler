@@ -16,15 +16,18 @@
 <fullyQualifiedTypeName name="symbol.ParameterSymbol"/>
 <fullyQualifiedTypeName name="MiniJavaParser"/>
 <fullyQualifiedTypeName name="syntaxtree.IntArrayType"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="util.BoolList"/>
 <fullyQualifiedTypeName name="mips.Frame"/>
 <fullyQualifiedTypeName name="frame.Access"/>
-<fullyQualifiedTypeName name="frame.AccessList"/>
 <fullyQualifiedTypeName name="syntaxtree.IdentifierType"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="visitor.DepthFirstVisitor"/>
 <fullyQualifiedTypeName name="visitor.InterpreterVisitor"/>
 <fullyQualifiedTypeName name="symbol.VariableSymbol"/>
 <fullyQualifiedTypeName name="visitor.Interpreter"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.lang.Boolean"/>
+<fullyQualifiedTypeName name="frame.AccessList"/>
+<fullyQualifiedTypeName name="tree.Exp"/>
 </qualifiedTypeNameHistroy>

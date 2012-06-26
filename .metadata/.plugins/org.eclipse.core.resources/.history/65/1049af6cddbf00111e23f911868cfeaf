@@ -1,0 +1,12 @@
+package tree;
+import Temp.Temp;
+import Temp.Label;
+public class EXPX extends Stm {
+  public Exp exp; 
+  public EXPX(Exp e) {exp=e;}
+  public ExpList kids() {return new ExpList(exp,null);}
+  public Stm build(ExpList kids) {
+    return new EXP(kids.head);
+  }
+}
+

@@ -1,0 +1,17 @@
+package translate;
+
+import temp.*;
+
+public class Nx extends Exp{
+	tree.Stm stm;
+	Nx(tree.Stm s) { stm=s; }
+	tree.Exp unEx() {
+		//TODO ???
+		return null;
+	}
+	tree.Stm unNx() { return stm; }
+	tree.Stm unCx(Label t, Label f) {
+		//TODO ???
+		return null;
+	}	
+}

@@ -1,0 +1,8 @@
+package translate;
+
+public abstract class Exp {
+	///See p 140.
+	abstract tree.Exp unEx();
+	abstract tree.Exp unNx();
+	abstract tree.Exp unCx();
+}

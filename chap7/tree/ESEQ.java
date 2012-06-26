@@ -1,6 +1,8 @@
 package tree;
 import temp.Temp;
 import temp.Label;
+
+//The statement s is evaluated for side effects, then e is evaluated for a result.
 public class ESEQ extends Exp {
   public Stm stm;
   public Exp exp;

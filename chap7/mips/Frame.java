@@ -1,23 +1,97 @@
 package mips;
 
+import java.util.*;
 import temp.Label;
+import temp.Temp;
 import util.BoolList;
 import frame.Access;
 import frame.AccessList;
 
+//MIPS Frame implementation
 public class Frame extends frame.Frame {
 
-	public Access allocLocal(boolean escape) {
-		//Note: in mini-java, variables NEVER escape! (see page 130).
-		//We'll always be returning an InReg() object.
-		return null;
-	}
+	private static final int wordSize = 4;
+	private int offset = 0;
+		
+	static final Temp ZERO = new Temp(); 
+    static final Temp AT = new Temp();
+    static final Temp V0 = new Temp();
+    static final Temp V1 = new Temp();
+    static final Temp A0 = new Temp();
+    static final Temp A1 = new Temp();
+    static final Temp A2 = new Temp();
+    static final Temp A3 = new Temp();
+    static final Temp T0 = new Temp();
+    static final Temp T1 = new Temp();
+    static final Temp T2 = new Temp();
+    static final Temp T3 = new Temp();
+    static final Temp T4 = new Temp();
+    static final Temp T5 = new Temp();
+    static final Temp T6 = new Temp();
+    static final Temp T7 = new Temp();
+    static final Temp S0 = new Temp();
+    static final Temp S1 = new Temp();
+    static final Temp S2 = new Temp();
+    static final Temp S3 = new Temp();
+    static final Temp S4 = new Temp();
+    static final Temp S5 = new Temp();
+    static final Temp S6 = new Temp();
+    static final Temp S7 = new Temp();
+    static final Temp T8 = new Temp();
+    static final Temp T9 = new Temp();
+    static final Temp K0 = new Temp();
+    static final Temp K1 = new Temp();
+    static final Temp GP = new Temp();
+    static final Temp SP = new Temp();
+    static final Temp S8 = new Temp();
+    static final Temp RA = new Temp();
+    
+	// Register lists: must not overlap and must include every register that
+    // might show up in code
+    private static final Temp[]
+        // registers dedicated to special purposes
+        specialRegs = { ZERO, AT, K0, K1, GP, SP },
+        // registers to pass outgoing arguments
+        argRegs = { A0, A1, A2, A3 },
+        // registers that a callee must preserve for its caller
+        calleeSaves = { RA, S0, S1, S2, S3, S4, S5, S6, S7, S8 },
+        // registers that a callee may use without preserving
+        callerSaves = { T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, V0, V1 };
+
+    static final Temp FP = new Temp(); // virtual frame pointer (eliminated)
+    
+    public Temp RV() { return V0; }
+    
+    public Temp FP() { return FP; }    
+	public int wordSize() { return wordSize; }
 	
 	///In mini-java, no parameters ever escape (see p 127)! Never create a BoolList with parameter h = true.
-	public Frame newFrame(Label name, BoolList formals) {
-		mips.Frame f = new mips.Frame();
-		//TODO: set members...
-		
-		return f;
+	public Frame newFrame(Label name, List<Boolean> formals) {
+		return new mips.Frame(name, formals);
 	}
+	
+	private Frame(Label name, List<Boolean> formals) {
+		this.name = name;
+		this.formals = new ArrayList<Access>();		
+		for(Boolean b: formals) {			
+			this.formals.add(this.allocLocal(b.booleanValue()));
+		}		
+	}
+       	
+    public Access allocLocal(boolean escape) {
+    	//In order to keep things simple, we are always going to allocate to the stack (no registers!). Once the compiler is working,
+    	//we can modify it to use the registers as an extra exercise.
+    	 Access result = new InFrame(offset);
+         offset -= wordSize;
+         return result;    	
+    	/*
+    	//Note: in mini-java, variables NEVER escape! (see page 130).
+		//We'll always be returning an InReg() object.
+        if (escape) {
+            Access result = new InFrame(offset);
+            offset -= wordSize;
+            return result;
+        } else
+            return new InReg(new Temp());*/
+    }
 }

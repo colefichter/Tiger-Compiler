@@ -1,6 +1,7 @@
 package tree;
 import temp.Temp;
 import temp.Label;
+//Represents a symbolic constant (corresponding to an assembly language label).
 public class NAME extends Exp {
   public Label label;
   public NAME(Label l) {label=l;}
